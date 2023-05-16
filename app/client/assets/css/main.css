@@ -1,3 +1,5 @@
+@import "fonts.css";
+
 :root{
     --light: hsl(197, 24%, 94%);
     --dark: hsl(235, 21%, 21%);
@@ -19,6 +21,9 @@
     box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.35);
     position: relative;
     top: 10vh;
+    font-family:'Poppins';
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
 }
 .left__logo {
     width: 100%;
@@ -55,21 +60,6 @@
 /* ----------------------------------------------------------- */
 /* CONTACT */ 
 
-#register{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    color: rgba(255, 255, 255, 0.4);
-    
-  }
-  #register h1{
-    color: black;
-    margin-left: 15vh;
-    margin-top: 5vh;
-    font-size: 24px;
-    font-family: light;
-    width: 75vh;
-    border-bottom: 4px solid #C62859;
-  }
   #register h3{
     color: black;
     margin-left: 15vh;
@@ -134,7 +124,7 @@
   #register section article .sign-in:checked + .tab,
   #register section article .sign-up:checked + .tab{
       color:#fff;
-      border-color:#C62859;
+      border-color: var(--primary);
   
   }
   .login-form{
@@ -174,8 +164,8 @@
       font-size:12px;
   }
   .login-form .group .button{
-      background:#C62859;
-    border: 3px solid #C62859;
+      background:var(--primary);
+    border: 3px solid var(--primary);
     cursor: pointer;
     transition: 0.6s;
     
