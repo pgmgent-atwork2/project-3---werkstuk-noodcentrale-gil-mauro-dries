@@ -3,7 +3,7 @@
  ## Breefing project:
  Een aplicatie voor feedback aan operatoren van de noodcentrale's van Oost-Vlaanderen.
  
- ## authors:
+ ## Authors:
  Dries Dhont, Mauro Coone, Gil Verstelt
  
  
