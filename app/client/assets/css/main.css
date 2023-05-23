@@ -74,7 +74,7 @@ body{
       height:100%;
       position:absolute;
       padding: 2rem 5rem;
-      background:rgba(12, 27, 65, 0.9);
+      background:#0c1b41e6;
   }
   #Login section article .Login__tab,
   .Login__login-form .Login__group .Login__label,
