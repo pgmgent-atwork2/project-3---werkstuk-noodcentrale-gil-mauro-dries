@@ -27,10 +27,16 @@ export default new EntitySchema({
       inverseSide: 'users',
     },
     role: {
-      target: 'roles',
+      target: 'Role',
       type: 'many-to-one',
       joinColumn: true,
       inverseSide: 'users',
+    },
+    feedback: {
+      target: 'Feedback',
+      type: 'one-to-one',
+      cascade: true,
+      inverseSide: 'user',
     },
   },
 });
