@@ -52,14 +52,14 @@ export const login = async (req, res) => {
   const inputs = [
     {
       name: 'email',
-      label: 'E-mail',
+      label: 'email',
       type: 'text',
       value: req.body?.email ? req.body.email : '',
       error: req.formErrorFields?.email ? req.formErrorFields.email : null,
     },
     {
       name: 'password',
-      label: 'Password',
+      label: 'Wachtwoord',
       type: 'password',
       password: req.body?.password ? req.body.password : '',
       error: req.formErrorFields?.password

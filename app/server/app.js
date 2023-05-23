@@ -5,6 +5,7 @@ import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import { create } from 'express-handlebars';
+import { fileURLToPath } from 'url';
 import DataSource from './lib/DataSource.js';
 import SOURCE_PATH from './constants.js';
 
@@ -21,7 +22,13 @@ import { jwtAuth } from './middleware/jwtAuth.js';
 const app = express();
 
 // serve static files
-app.use(express.static('public'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(
+  '/public',
+  express.static(path.join(__dirname, '..', 'client', 'assets'))
+);
 
 /*
  * import body parser & coockie parser

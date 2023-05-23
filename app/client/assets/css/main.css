@@ -1,7 +1,7 @@
 @import "fonts.css";
 
 body{
-  font-family: 'Poppins';
+    font-family: 'Poppins';
 }
 :root{
     --light: hsl(197, 24%, 94%);

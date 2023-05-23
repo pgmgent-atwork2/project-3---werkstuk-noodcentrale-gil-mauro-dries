@@ -1,13 +1,30 @@
 <section class="main">
-  <h4>Login</h4>
   {{>form-errors this}}
-  <form method="post" action="login">
-    {{#each inputs}}
-      {{>form-input this}}
-    {{/each}}
-    <div class="footer-container">
-      <input type="reset" class="btn-clear" value="Clear">
-      <input type="submit" class="btn-login" value="Login">
-    </div>
+  <form method="post" action="login" class="container" id="Login">
+    <article class="Login__left-logo">
+            <img src="/public/images/logo112.png" alt="logo Noodcentrale">
+        </article>
+
+
+        <section class="Login__right-Login">
+            <article> 
+              <label for="tab-2" class="Login__tab">Inloggen</label>
+              <div class="Login__login-form">    
+                  <div class="Login__sign-up-htm">
+                    <div class="Login__group">
+                      {{#each inputs}}
+                        {{>form-input this}}
+                      {{/each}}
+                    </div>
+                        <div class="Login__group">
+                          <input type="submit" class="btn-login Login__button" value="Login">
+                        </div>
+                      <div class="Login__hr"></div>
+                  </div>
+              </div>
+            </article>
+        </section>
+    
+    
   </form>
 </section>
