@@ -1,0 +1,13 @@
+<section class="main">
+  <h4>Login</h4>
+  {{>form-errors this}}
+  <form method="post" action="login">
+    {{#each inputs}}
+      {{>form-input this}}
+    {{/each}}
+    <div class="footer-container">
+      <input type="reset" class="btn-clear" value="Clear">
+      <input type="submit" class="btn-login" value="Login">
+    </div>
+  </form>
+</section>
