@@ -97,7 +97,9 @@ body{
   .Login__login-form .Login__sign-up-htm .Login__group{
     margin-bottom: 15px;
   }
-  
+  .Login__group div:nth-child(1){
+    margin-bottom: 1rem;
+  }
   .Login__login-form .Login__group .Login__label,
   .Login__login-form .Login__group .Login__input,
   .Login__login-form .Login__group .Login__button{

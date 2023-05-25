@@ -19,6 +19,7 @@ export const register = async (req, res) => {
       type: 'text',
       value: req.body?.email ? req.body.email : '',
       error: req.formErrorFields?.email ? req.formErrorFields.email : null,
+     
     },
     {
       name: 'password',
@@ -28,6 +29,7 @@ export const register = async (req, res) => {
       error: req.formErrorFields?.password
         ? req.formErrorFields.password
         : null,
+      
     },
   ];
 
@@ -56,6 +58,7 @@ export const login = async (req, res) => {
       type: 'text',
       value: req.body?.email ? req.body.email : '',
       error: req.formErrorFields?.email ? req.formErrorFields.email : null,
+      placeholder: 'Evelien.rutseart@arteveldehs.be',
     },
     {
       name: 'password',
@@ -65,6 +68,7 @@ export const login = async (req, res) => {
       error: req.formErrorFields?.password
         ? req.formErrorFields.password
         : null,
+      placeholder: '*****',
     },
   ];
 
