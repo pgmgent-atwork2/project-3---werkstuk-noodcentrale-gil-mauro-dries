@@ -10,7 +10,7 @@ import DataSource from './lib/DataSource.js';
 import SOURCE_PATH from './constants.js';
 
 //! import frontend
-import { renderForBrowser } from './controllers/noodcentraleFront.js';
+import { renderTestAddUser, renderTestDashboard } from './controllers/noodcentraleFront.js';
 
 // login and register imports
 import { login, logout } from './controllers/authentication.js';
@@ -57,7 +57,9 @@ app.post('/logout', logout);
 
 //! define routes FRONT-END
 
-app.get('/', renderForBrowser);
+app.get('/');
+app.get('/admindash', renderTestDashboard);
+app.get('/adminAddUser', renderTestAddUser);
 
 //* -------------------------------- DATA INIT --------------------------------
 
