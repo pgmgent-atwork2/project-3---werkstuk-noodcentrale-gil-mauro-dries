@@ -1,5 +1,8 @@
 @import "fonts.css";
 
+body{
+    font-family: 'Poppins';
+}
 :root{
     --light: hsl(197, 24%, 94%);
     --dark: hsl(235, 21%, 21%);
@@ -11,7 +14,7 @@
     width: 100%;
     margin: 0 auto;
 }
-#register{
+#Login{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: auto;
@@ -21,11 +24,11 @@
     box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.35);
     position: relative;
     top: 10vh;
-    font-family:'Poppins';
     font-weight: 400;
     color: rgba(255, 255, 255, 0.4);
+    width: 70rem;
 }
-.left__logo {
+.Login__left-logo {
     width: 100%;
     height: 80vh;
     display: flex;
@@ -47,10 +50,10 @@
         background-position: 0% 50%;
     }
 }
-.left__logo img{
+.Login__left-logo img{
     width: 10rem;
 }
-.right__register{
+.Login__right-Login{
     background-color: var(--dark);
     width: 100%;
     height: 100%;
@@ -60,226 +63,81 @@
 /* ----------------------------------------------------------- */
 /* CONTACT */ 
 
-  #register h3{
-    color: black;
-    margin-left: 15vh;
-    font-size: 24px;
-    font-family: light;
   
-  }
-  *,:after,:before{box-sizing:border-box}
-  .clearfix:after,.clearfix:before{content:'';display:table}
-  .clearfix:after{clear:both;display:block}
-  a{color:inherit;text-decoration:none}
-  
-  #register section{
+  #Login section{
       width:100%;
-      margin:auto;
-      min-height:100%;
       position:relative;
-        background-size: cover;
       box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-    grid-column: 2/3;
   }
-  #register section article{
+  #Login section article{
       width:100%;
       height:100%;
       position:absolute;
       padding: 2rem 5rem;
-      background:rgba(12, 27, 65, 0.9);
+      background:#0c1b41e6;
   }
-  #register figure + img{
-    margin-top: 1vh;
-  }
-  #register section article .sign-in-htm,
-  #register section article .sign-up-htm{
-      top:0;
-      left:0;
-      right:0;
-      bottom:0;
-      position:absolute;
-      transform:rotateY(180deg);
-      backface-visibility:hidden;
-      transition:all .4s linear;
-  }
-  #register section article .sign-in,
-  #register section article .sign-up,
-  .login-form .group .check{
-      display:none;
-  }
-  #register section article .tab,
-  .login-form .group .label,
-  .login-form .group .button{
+  #Login section article .Login__tab,
+  .Login__login-form .Login__group .Login__label,
+  .Login__login-form .Login__group .Login__button{
       text-transform:uppercase;
   }
-  #register section article .tab{
-      font-size:18px;
-      margin-right:15px;
-      padding-bottom:5px;
-      margin:0 15px 10px 0;
-      display:inline-block;
-      border-bottom:2px solid transparent;
-    cursor: pointer;
+  #Login section article .Login__tab{
+      font-size: 24px;
+      margin:0 15px 20px 0;
+      padding-bottom: 0.5rem;
+      border-bottom:2px solid var(--primary);
+      color: var(--light);
+      font-weight: 500
   }
-  #register section article .sign-in:checked + .tab,
-  #register section article .sign-up:checked + .tab{
-      color:#fff;
-      border-color: var(--primary);
-  
-  }
-  .login-form{
+  .Login__login-form{
       min-height:345px;
       position:relative;
-      perspective:1000px;
-      transform-style:preserve-3d;
-    margin-right: 70px;
+      margin-top: 2rem;
   }
-  .login-form .group{
-      margin-bottom: 15px;
+  .Login__login-form .Login__sign-up-htm .Login__group{
+    margin-bottom: 15px;
   }
-  .radiogeslacht + .group{
-    margin-top: 30px;
-  }
-  .login-form .group .label,
-  .login-form .group .input,
-  .login-form .group .button{
+  
+  .Login__login-form .Login__group .Login__label,
+  .Login__login-form .Login__group .Login__input,
+  .Login__login-form .Login__group .Login__button{
       width:100%;
       color:#fff;
       display:block;
+      font-size: 0.8rem;
   }
-  .login-form .group .input,
-  .login-form .group .button{
+  .Login__login-form .Login__group .Login__input,
+  .Login__login-form .Login__group .Login__button{
       border:none;
       padding:8px 20px;
-    margin-top: 10px;
-      border-radius:25px;
+      margin-top: 10px;
+      border-radius: 10px;
       background:rgba(255,255,255,.1);
   }
-  .login-form .group input[data-type="password"]{
-      text-security:circle;
-      -webkit-text-security:circle;
-  }
-  .login-form .group .label{
+  .Login__login-form .Login__group .Login__label{
       color:#aaa;
       font-size:12px;
   }
-  .login-form .group .button{
+  .Login__login-form .Login__group .Login__button{
       background:var(--primary);
     border: 3px solid var(--primary);
     cursor: pointer;
     transition: 0.6s;
     
   }
-  .login-form .group .button:hover{
+  .Login__login-form .Login__group .Login__button:hover{
     background: transparent;
     transition: 0.6s;
     
   }
-  .login-form .group label .icon{
-      width:15px;
-      height:15px;
-      border-radius:2px;
-      position:relative;
-      display:inline-block;
-      background:rgba(255,255,255,.1);
+  .Login__login-form .Login__group:nth-child(n+3){
+      margin-top: 30px;
   }
-  .login-form .group label .icon:before,
-  .login-form .group label .icon:after{
-      content:'';
-      width:10px;
+  .Login__hr{
       height:2px;
-      background:#fff;
-      position:absolute;
-      transition:all .2s ease-in-out 0s;
-  }
-  .login-form .group label .icon:before{
-      left:3px;
-      width:5px;
-      bottom:6px;
-      transform:scale(0) rotate(0);
-  }
-  .login-form .group label .icon:after{
-      top:6px;
-      right:0;
-      transform:scale(0) rotate(0);
-  }
-  .login-form .group .check:checked + label{
-      color:#fff;
-  }
-  .login-form .group .check:checked + label .icon{
-      background:#C62859;
-    
-  }
-  .login-form .group .check:checked + label .icon:before{
-      transform:scale(1) rotate(45deg);
-  }
-  .login-form .group .check:checked + label .icon:after{
-      transform:scale(1) rotate(-45deg);
-  }
-  #register section article .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-      transform:rotate(0);
-  }
-  #register section article .sign-up:checked + .tab + .login-form .sign-up-htm{
-      transform:rotate(0);
-  }
-  
-  .hr{
-      height:2px;
-      margin:60px 0 50px 0;
+      margin:40px 0 50px 0;
       background:rgba(255,255,255,.2);
   }
-  .foot-lnk{
-   padding-bottom: 15px;
-  }
-  input[type="radio"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    border-radius: 50%; 
-    
-  }
-  input[type="radio"]:checked {
-    background-clip: content-box;
-    background-color: #C62859;
-    transition: all .2s ease-in-out 0s;
-  }
-  .radiogeslacht{
-    display: grid;
-    margin-top: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  input[type="radio"]:checked  + label {
-    color: white;
-    transition: all .2s ease-in-out 0.1s;
-    
-  }
-  .geslachtt{
-    color: #aaa;
-    font-size: 12px;
-  }
-  #register article figure{
-    display: grid;
-    grid-template-columns: 15% 55%;
-    grid-template-rows: repeat(5,1fr);
-    margin-left: 15vh;
-  }
-  #register figure img{
-      width: 70%;
-      padding: 10px;
-  }
-  #register figure p{
-    color: black;
-    align-self: center;
-    font-size: 16px;
-    font-family: regular;
-    transition: 0.5s;
-    cursor: pointer;
-  }
-  #register figure p:hover{
-    margin-left: 15px;
-    transition: 0.5s;
+  input:focus{
+    outline: 2px solid var(--secondary);
   }
