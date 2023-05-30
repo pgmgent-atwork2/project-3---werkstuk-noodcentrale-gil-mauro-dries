@@ -25,7 +25,7 @@ import {
   renderTestDashboard,
   renderTestAddUser,
 } from './controllers/noodcentraleFront.js';
-import { renderTestAddUser, renderTestDashboard } from './controllers/noodcentraleFront.js';
+
 
 // login and register imports
 import { login, logout } from './controllers/authentication.js';
@@ -84,12 +84,9 @@ app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
 app.get('/', renderForBrowser);
 app.get('/add-user', addUserForm);
-<<<<<<< HEAD
 app.post('/add-user', addUser);
 app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
-=======
->>>>>>> origin/feature-seeding&test
 
 //* -------------------------------- DATA INIT --------------------------------
 

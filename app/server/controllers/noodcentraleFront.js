@@ -40,9 +40,3 @@ export const renderTestDashboard = async (req, res) => {
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };
-export const renderTestDashboard = async (req, res) => {
-  res.render('layouts/adminDashboard');
-};
-export const renderTestAddUser = async (req, res) => {
-  res.render('layouts/adminAddUser');
-};
