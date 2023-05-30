@@ -9,6 +9,52 @@
     <title>Inloggen</title>
   </head>
   <body>
-    Add User
+    <nav class="nav__list">
+      <ul>
+        <h2>Medewerker toevoegen</h2>
+        <div class="Admin-profile">
+            <div>
+              <h4>Big boss</h4> 
+              <span>Super Admin</span>
+            </div>
+            <img src="/public/images/superAdmin.jpg" alt="">
+        </div>
+      </ul>
+    </nav>
+    <a class="GoBack" href="/admindash">
+      <div>
+        <img src="/public/images/gobackArrow.png" alt="">
+        <p>Go back</p>
+      </div>
+    </a>
+    <section class="main">
+  {{>form-errors this}}
+  <form method="post" action="login" class="container addAdmin" id="Login">
+    <article class="Login__left-logo">
+            <img src="/public/images/logo112.png" alt="logo Noodcentrale">
+        </article>
+
+        <section class="Login__right-Login">
+            <article> 
+              <label for="tab-2" class="Login__tab">Voeg medewerker toe</label>
+              <div class="Login__login-form">    
+                  <div class="Login__sign-up-htm">
+                    <label for="" class="Login__label">*Verplichte velden</label>
+                    <div class="Login__group">
+                        {{>form-add-medewerker}}
+                    </div>
+                        <div class="Login__group">
+                          <button type="submit" class="btn-login Login__button">Voeg toe</button>
+                        </div>
+                      <div class="add__hr"></div>
+                  </div>
+              </div>
+            </article>
+        </section>
+    
+    
+  </form>
+</section>
+
   </body>
 </html>
