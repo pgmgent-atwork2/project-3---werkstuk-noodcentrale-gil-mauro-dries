@@ -15,13 +15,15 @@ import {
   getUsers,
   deleteUsers,
   updateUser,
+  addUser,
 } from './controllers/noodcentraleBack.js';
 
 //! import frontend
 import {
   renderForBrowser,
   addUserForm,
-  addUser,
+  renderTestDashboard,
+  renderTestAddUser,
 } from './controllers/noodcentraleFront.js';
 import { renderTestAddUser, renderTestDashboard } from './controllers/noodcentraleFront.js';
 
@@ -72,15 +74,22 @@ app.post('/logout', logout);
 
 app.get('/api/users', getUsers);
 app.delete('/api/delUsers', deleteUsers);
+app.post('/add-user', addUser);
 app.put('/api/putUsers', updateUser);
+
 
 //! define routes FRONT-END
 
+app.get('/admindash', renderTestDashboard);
+app.get('/adminAddUser', renderTestAddUser);
 app.get('/', renderForBrowser);
 app.get('/add-user', addUserForm);
+<<<<<<< HEAD
 app.post('/add-user', addUser);
 app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
+=======
+>>>>>>> origin/feature-seeding&test
 
 //* -------------------------------- DATA INIT --------------------------------
 

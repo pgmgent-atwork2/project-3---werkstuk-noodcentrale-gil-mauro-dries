@@ -3,69 +3,42 @@
  */
 
 import { validationResult } from 'express-validator';
-import bcrypt from 'bcrypt';
 import DataSource from '../lib/DataSource.js';
 
-// eslint-disable-next-line consistent-return
-export const addUser = async (req, res, next) => {
+export const renderForBrowser = async (req, res) => {
   try {
-    // make user repository instance
-    const userRepository = await DataSource.getRepository('User');
-    const roleRepository = await DataSource.getRepository('Role');
+    const userRepo = DataSource.getRepository('UserMeta');
 
-    const userExists = await userRepository.findOne({
-      where: {
-        email: req.body.email,
-      },
-    });
+    const findUser = userRepo.find();
 
-    const role = await roleRepository.findOne({
-      where: {
-        label: req.body.role,
-      },
-    });
-
-    if (!role) {
-      console.log('Role not found');
-      req.formErrors = [{ message: 'Rol bestaat niet.' }];
-      return next();
+    // Return JSON als we geen cookie hebben, anders returnen we gewoon de view hieronder.
+    if (!req.user) {
+      return res.json(findUser);
     }
-
-    if (userExists) {
-      console.log('User already exists');
-      req.formErrors = [{ message: 'Gebruiker bestaat al.' }];
-      return next();
+    const userRole = req.user.role.label;
+    console.log(userRole);
+    if (userRole === 'admin') {
+      res.render('adminDashboard', {
+        user: req.user,
+        findUser,
+      });
+      return;
     }
-
-    const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-
-    // create a new user
-    const user = await userRepository.create({
-      email: req.body.email,
-      password: hashedPassword,
-      role,
-      meta: {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        username: 'abcd',
-        avatar: 'aba',
-      },
-    });
-
-    // save the user
-    await userRepository.save(user);
-
-    res.redirect('/moet_gebeuren');
   } catch (e) {
     console.log(e.message);
-    next(e.message);
   }
 };
 
-export const renderForBrowser = async (req, res) => {};
-
 export const addUserForm = async (req, res) => {
-  res.render('test-form', {});
+  res.render('partials/form-add-medewerker', {});
+};
+
+export const renderTestDashboard = async (req, res) => {
+  res.render('layouts/adminDashboard');
+};
+
+export const renderTestAddUser = async (req, res) => {
+  res.render('layouts/adminAddUser');
 };
 export const renderTestDashboard = async (req, res) => {
   res.render('layouts/adminDashboard');
