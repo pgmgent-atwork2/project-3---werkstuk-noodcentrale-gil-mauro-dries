@@ -62,16 +62,14 @@ export const addUser = async (req, res, next) => {
   }
 };
 
-<<<<<<< HEAD
 export const renderForBrowser = async (req, res) => {};
 
 export const addUserForm = async (req, res) => {
   res.render('test-form', {});
-=======
+};
 export const renderTestDashboard = async (req, res) => {
   res.render('layouts/adminDashboard');
 };
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
->>>>>>> feature-admin-dashboard
 };
