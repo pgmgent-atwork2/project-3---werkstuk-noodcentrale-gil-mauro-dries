@@ -7,43 +7,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import DataSource from '../lib/DataSource.js';
 
-export const register = async (req, res) => {
-  // errors
-  const { formErrors } = req;
-
-  // input fields
-  const inputs = [
-    {
-      name: 'email',
-      label: 'E-mail',
-      type: 'text',
-      value: req.body?.email ? req.body.email : '',
-      error: req.formErrorFields?.email ? req.formErrorFields.email : null,
-    },
-    {
-      name: 'password',
-      label: 'Password',
-      type: 'password',
-      password: req.body?.password ? req.body.password : '',
-      error: req.formErrorFields?.password
-        ? req.formErrorFields.password
-        : null,
-    },
-  ];
-
-  // get the roles
-  const roleRepository = await DataSource.getRepository('Role');
-  const roles = await roleRepository.find();
-
-  // render the register page
-  res.render('register', {
-    layout: 'authentication',
-    inputs,
-    formErrors,
-    roles,
-  });
-};
-
 export const login = async (req, res) => {
   // errors
   const { formErrors } = req;
@@ -56,6 +19,7 @@ export const login = async (req, res) => {
       type: 'text',
       value: req.body?.email ? req.body.email : '',
       error: req.formErrorFields?.email ? req.formErrorFields.email : null,
+      placeholder: 'Evelien.rutseart@arteveldehs.be',
     },
     {
       name: 'password',
@@ -65,6 +29,7 @@ export const login = async (req, res) => {
       error: req.formErrorFields?.password
         ? req.formErrorFields.password
         : null,
+      placeholder: '*****',
     },
   ];
 
@@ -133,7 +98,7 @@ export const postRegister = async (req, res, next) => {
     // save the user
     await userRepository.save(user);
 
-    res.redirect('/login');
+    res.redirect('/moet_gebeuren');
   } catch (e) {
     next(e.message);
   }

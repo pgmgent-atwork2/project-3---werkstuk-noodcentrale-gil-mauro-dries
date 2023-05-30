@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
 // import statements
 import bodyParser from 'body-parser';
@@ -9,8 +10,22 @@ import { fileURLToPath } from 'url';
 import DataSource from './lib/DataSource.js';
 import SOURCE_PATH from './constants.js';
 
+//! import backend
+import {
+  getUsers,
+  deleteUsers,
+  updateUser,
+  addUser,
+} from './controllers/noodcentraleBack.js';
+
 //! import frontend
-import { renderTestAddUser, renderTestDashboard } from './controllers/noodcentraleFront.js';
+import {
+  renderForBrowser,
+  addUserForm,
+  renderTestDashboard,
+  renderTestAddUser,
+} from './controllers/noodcentraleFront.js';
+
 
 // login and register imports
 import { login, logout } from './controllers/authentication.js';
@@ -55,9 +70,21 @@ app.set('views', path.resolve(SOURCE_PATH, 'views'));
 app.get('/login', login);
 app.post('/logout', logout);
 
+//! define routes BACK-END
+
+app.get('/api/users', getUsers);
+app.delete('/api/delUsers', deleteUsers);
+app.post('/add-user', addUser);
+app.put('/api/putUsers', updateUser);
+
+
 //! define routes FRONT-END
 
-app.get('/');
+app.get('/admindash', renderTestDashboard);
+app.get('/adminAddUser', renderTestAddUser);
+app.get('/', renderForBrowser);
+app.get('/add-user', addUserForm);
+app.post('/add-user', addUser);
 app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
 

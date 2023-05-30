@@ -1,0 +1,26 @@
+<form action='/add-user' method='post'>
+  <input placeholder='voornaam' name='firstname' type='text' />
+  <input placeholder='achternaam' name='lastname' type='text' />
+  <input placeholder='email' name='email' type='text' />
+  <input placeholder='tel' name='phone' type='text' />
+  <input placeholder='password' name='password' type='text' />
+  <select name='role' id='rol'>
+
+    <option value='admin'>admin</option>
+    <option value='medisch'>medische</option>
+    <option value='niet-medisch'>niet-medische</option>
+  </select>
+  <button type='submit'>Yes</button>
+</form>
+
+{{#if userRole}}
+  {{#ifEquals userRole "medische"}}
+  <p>kaas</p>
+  {{else ifEquals userRole "user"}}
+    <p>Welcome, User!</p>
+  {{else}}
+    <p>Welcome, Guest!</p>
+  {{/ifEquals}}
+{{else}}
+  <p>No user role specified.</p>
+{{/if}}

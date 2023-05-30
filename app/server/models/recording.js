@@ -20,6 +20,9 @@ export default new EntitySchema({
     language: {
       type: 'varchar',
     },
+    date: {
+      type: 'varchar',
+    },
   },
   relations: {
     feedback: {
