@@ -28,6 +28,10 @@ body{
     color: rgba(255, 255, 255, 0.4);
     width: 70rem;
 }
+#Login.addAdmin{
+    top: 2vh;
+    height: 85vh;
+}
 .Login__left-logo {
     width: 100%;
     height: 80vh;
@@ -38,6 +42,9 @@ body{
     background-image: linear-gradient(-45deg, var(--light) 0%, var(--secondary) 25%, var(--light) 51%, var(--secondary) 100%);
     -webkit-animation: AnimateBG 15s ease infinite;
             animation: AnimateBG 15s ease infinite;
+}
+#login.addAdmin .Login__left-logo{
+    height: 85vh;
 }
 @keyframes AnimateBG {
     0% {
@@ -92,7 +99,7 @@ body{
   .Login__login-form{
       min-height:345px;
       position:relative;
-      margin-top: 2rem;
+      margin-top: 1rem;
   }
   .Login__login-form .Login__sign-up-htm .Login__group{
     margin-bottom: 15px;
@@ -110,13 +117,14 @@ body{
   .Login__login-form .Login__group .Login__button{
       border:none;
       padding:8px 20px;
-      margin-top: 10px;
+      margin-top: 5px;
       border-radius: 10px;
       background:rgba(255,255,255,.1);
   }
   .Login__login-form .Login__group .Login__label{
       color:#aaa;
       font-size:12px;
+      margin-top: 5px;
   }
   .Login__login-form .Login__group .Login__button{
       background:var(--primary);
@@ -230,4 +238,31 @@ body{
     height: 30px;
     object-fit: contain;
     border-radius: 1rem;
+}
+
+.GoBack{
+    position: absolute;
+    text-decoration: none;
+    top: 6rem;
+    left: 5vw;
+}
+.GoBack div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.GoBack div img{
+    width: 25px;
+    height: 30px;
+}
+.add__hr{
+    height:2px;
+    margin:10px 0 50px 0;
+    background:rgba(255,255,255,.2);
+}
+/* ----------------- dropwdown --------------- */ 
+#rol{
+    background-color: var(--light);
+    border: none;
+    border-radius: 5px;
 }
