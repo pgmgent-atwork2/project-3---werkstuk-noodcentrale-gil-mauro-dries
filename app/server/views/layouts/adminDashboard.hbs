@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/reset.css" />
+    <link rel="stylesheet" href="/public/css/main.css"/>
+    <link rel="stylesheet" href="/public/css/mediaQuerry.css"/>
+    <title>Inloggen</title>
+  </head>
+  <body>
+    {{>header/admin-header/medewerkerslijst-header}}
+    <main id="list">
+        <div class="list__top">
+          <h2>Alle medewerkers</h2>
+          <div>
+            {{>buttons/medewerkerslijst-filter-button}}
+            {{>buttons/mederwerkerslijst-toevoegen-button}}
+          </div>
+        </div>
+        <section class="list">
+          <div class="list-names">
+            <p>Medewerkers</p>
+            <p>E-mail</p>
+            <p>Tel.</p>
+            <p>Rol</p>
+          </div>
+          <hr>
+          {{> medewerkerslijst/medewerkerslijst-lijst}}
+        </section>
+    </main>
+  </body>
+</html>

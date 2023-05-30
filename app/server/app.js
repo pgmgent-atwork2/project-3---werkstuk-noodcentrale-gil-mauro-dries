@@ -18,11 +18,15 @@ import {
 } from './controllers/noodcentraleBack.js';
 
 //! import frontend
+<<<<<<< HEAD
 import {
   renderForBrowser,
   addUserForm,
   addUser,
 } from './controllers/noodcentraleFront.js';
+=======
+import { renderTestAddUser, renderTestDashboard } from './controllers/noodcentraleFront.js';
+>>>>>>> feature-admin-dashboard
 
 // login and register imports
 import { login, logout } from './controllers/authentication.js';
@@ -75,9 +79,15 @@ app.put('/api/putUsers', updateUser);
 
 //! define routes FRONT-END
 
+<<<<<<< HEAD
 app.get('/', renderForBrowser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
+=======
+app.get('/');
+app.get('/admindash', renderTestDashboard);
+app.get('/adminAddUser', renderTestAddUser);
+>>>>>>> feature-admin-dashboard
 
 //* -------------------------------- DATA INIT --------------------------------
 
