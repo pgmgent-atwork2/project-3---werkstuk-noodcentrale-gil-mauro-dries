@@ -15,13 +15,15 @@ import {
   getUsers,
   deleteUsers,
   updateUser,
+  addUser,
 } from './controllers/noodcentraleBack.js';
 
 //! import frontend
 import {
   renderForBrowser,
   addUserForm,
-  addUser,
+  renderTestDashboard,
+  renderTestAddUser,
 } from './controllers/noodcentraleFront.js';
 
 // login and register imports
@@ -71,13 +73,16 @@ app.post('/logout', logout);
 
 app.get('/api/users', getUsers);
 app.delete('/api/delUsers', deleteUsers);
+app.post('/add-user', addUser);
 app.put('/api/putUsers', updateUser);
+
 
 //! define routes FRONT-END
 
+app.get('/admindash', renderTestDashboard);
+app.get('/adminAddUser', renderTestAddUser);
 app.get('/', renderForBrowser);
 app.get('/add-user', addUserForm);
-app.post('/add-user', addUser);
 
 //* -------------------------------- DATA INIT --------------------------------
 
