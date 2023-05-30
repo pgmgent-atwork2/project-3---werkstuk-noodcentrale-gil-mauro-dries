@@ -7,8 +7,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import DataSource from '../lib/DataSource.js';
 
-<<<<<<< HEAD
-=======
 export const register = async (req, res) => {
   // errors
   const { formErrors } = req;
@@ -21,7 +19,6 @@ export const register = async (req, res) => {
       type: 'text',
       value: req.body?.email ? req.body.email : '',
       error: req.formErrorFields?.email ? req.formErrorFields.email : null,
-     
     },
     {
       name: 'password',
@@ -31,7 +28,6 @@ export const register = async (req, res) => {
       error: req.formErrorFields?.password
         ? req.formErrorFields.password
         : null,
-      
     },
   ];
 
@@ -48,7 +44,6 @@ export const register = async (req, res) => {
   });
 };
 
->>>>>>> origin/feature-register
 export const login = async (req, res) => {
   // errors
   const { formErrors } = req;
