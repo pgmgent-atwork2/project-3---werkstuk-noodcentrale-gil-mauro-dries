@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
 // import statements
 import bodyParser from 'body-parser';
@@ -9,8 +10,19 @@ import { fileURLToPath } from 'url';
 import DataSource from './lib/DataSource.js';
 import SOURCE_PATH from './constants.js';
 
+//! import backend
+import {
+  getUsers,
+  deleteUsers,
+  updateUser,
+} from './controllers/noodcentraleBack.js';
+
 //! import frontend
-import { renderForBrowser } from './controllers/noodcentraleFront.js';
+import {
+  renderForBrowser,
+  addUserForm,
+  addUser,
+} from './controllers/noodcentraleFront.js';
 
 // login and register imports
 import { login, logout } from './controllers/authentication.js';
@@ -55,9 +67,17 @@ app.set('views', path.resolve(SOURCE_PATH, 'views'));
 app.get('/login', login);
 app.post('/logout', logout);
 
+//! define routes BACK-END
+
+app.get('/api/users', getUsers);
+app.delete('/api/delUsers', deleteUsers);
+app.put('/api/putUsers', updateUser);
+
 //! define routes FRONT-END
 
 app.get('/', renderForBrowser);
+app.get('/add-user', addUserForm);
+app.post('/add-user', addUser);
 
 //* -------------------------------- DATA INIT --------------------------------
 
