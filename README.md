@@ -7,6 +7,7 @@
 De @work2 app is ontwikkeld als een project voor Noodcentrale Oost-Vlaanderen in samenwerking met Artevelde Hogeschool. Het doel van de app is om een efficiënte en geautomatiseerde oplossing te bieden voor het beheer van noodsituaties en communicatie tussen hulpverleners.
 
 ## Installatie
+in de terminal voor het npm install command uit: npm i
 
 ## Licentie
 Dit project is gelicentieerd onder de MIT-licentie. Zie het LICENSE-bestand voor meer informatie.
