@@ -24,6 +24,8 @@ import {
   addUserForm,
   renderTestDashboard,
   renderTestAddUser,
+  renderTestMedischDashboard,
+  renderTestNietMedischDashboard,
 } from './controllers/noodcentraleFront.js';
 
 
@@ -87,6 +89,9 @@ app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
 app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
+app.get('/medischdash', renderTestMedischDashboard);
+app.get('/nietmedischdash', renderTestNietMedischDashboard);
+
 
 //* -------------------------------- DATA INIT --------------------------------
 
