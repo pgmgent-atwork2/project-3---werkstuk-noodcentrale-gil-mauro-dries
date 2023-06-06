@@ -1,0 +1,149 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/reset.css" />
+    <link rel="stylesheet" href="/public/css/main.css"/>
+    <link rel="stylesheet" href="/public/css/mediaQuerry.css"/>
+    <title>Inloggen</title>
+  </head>
+  <body>
+    <nav class="nav__list nav__listNM">
+      <ul>
+        <div></div>
+        <div class="Admin-profile">
+            <div>
+              <h4>Dries Dhondt</h4> 
+              <span>ROLLLL (medisch)</span>
+            </div>
+            <img src="/public/images/superAdmin.jpg" alt="">
+        </div>
+      </ul>
+    </nav>
+    <main class="nietMedisch__dashboard">
+        <aside>
+            <div>
+                <img src="/public/images/dashboard.png" alt="dashboard icon">
+                <p>Dashboard</p>
+            </div>
+            <div>
+                <img src="/public/images/gesprekken.png" alt="gesprekken icon">
+                <p>Gesprekken</p>
+            </div>
+            <div>
+                <img src="/public/images/collega.png" alt="collega icon">
+                <p>Collega's</p>
+            </div>
+        </aside>
+        <section class="right__section">
+            <header>
+                <div class="header__container">
+                    <div class="header__profile">
+                        <img src="/public/images/superAdmin.jpg" alt="Dries foto">
+                        <div>
+                            <p>Goede morgen, Dries</p>  <!-- dynamisch maken -->
+                            <span>Beoordeel nu je collega's</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="/public/images/calender.png" alt="calender icon">
+                            <p><span>Vandaag,</span> 9 april</p>
+                        </div>
+                        <div>
+                            <img src="/public/images/clock.png" alt="clock icon">
+                            <p>10:00</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <article>
+                <div>
+                    <h3 class="title__live">Live luisteren</h3>
+                    <ul class="liveLuisteren__list">
+                        <li>
+                            <div>
+                                <img src="/public/images/gesprekken.png" alt="telephone icon">
+                            </div>
+                            <p>Gil verstelt</p>
+                            <p>email</p>
+                            <p>gsm nummer</p>
+                            <span class="clock"></span>
+                            <button><a href="/feedback">Luister</a></button>
+                        </li>
+                        <hr>
+                        <li>
+                            <div>
+                                <img src="/public/images/gesprekken.png" alt="telephone icon">
+                            </div>
+                            <p>Gil verstelt</p>
+                            <p>email</p>
+                            <p>gsm nummer</p>
+                            <span class="clock2"></span>
+                            <button><a href="/feedback">Luister</a></button>
+                        </li>
+                        <hr>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="title__live">Recente gesprekken</h3>
+                    <ul class="liveLuisteren__list">
+                        <li>
+                            <div>
+                                <img src="/public/images/gesprekken.png" alt="telephone icon">
+                            </div>
+                            <p>Gil verstelt</p>
+                            <p>email</p>
+                            <p>gsm nummer</p>
+                            <span>2:29 minuten</span>
+                            <button><a href="/feedback">Beoordeel</a></button>
+                        </li>
+                        <hr>
+                        <li>
+                            <div>
+                                <img src="/public/images/gesprekken.png" alt="telephone icon">
+                            </div>
+                            <p>Gil verstelt</p>
+                            <p>email</p>
+                            <p>gsm nummer</p>
+                            <span>5:18 minuten</span>
+                            <button><a href="/feedback">Beoordeel</a></button>
+                        </li>
+                        <hr>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        
+    </main>
+
+    <script>
+        function showTime(){
+    let date = new Date();
+    let h = date.getHours(); // 0 - 23
+    let m = Math.round(date.getMinutes() / 2); // 0 - 59
+    let s = date.getSeconds(); // 0 - 59
+    
+
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    
+    let time = m + ":" + s + ' minuten';
+    document.querySelector(".clock").innerText = time;
+    document.querySelector(".clock").textContent = time;
+
+    document.querySelector(".clock2").innerText = time;
+    document.querySelector(".clock2").textContent = time;
+
+
+    
+    setTimeout(showTime, 1000);
+    
+}
+
+showTime();
+    </script>
+  </body>
+</html>
