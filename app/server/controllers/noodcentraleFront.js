@@ -107,17 +107,12 @@ export const updateUser = async (req, res) => {
 export const renderDashboard = async (req, res) => {
   res.render('layouts/adminDashboard');
 };
-<<<<<<< HEAD
-
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };
 export const renderTestMedischDashboard = async (req, res) => {
   res.render('layouts/medischDashboard');
 };
-
 export const renderTestNietMedischDashboard = async (req, res) => {
   res.render('layouts/nietMedischDashboard');
 };
-=======
->>>>>>> origin/feature-combined-front&back

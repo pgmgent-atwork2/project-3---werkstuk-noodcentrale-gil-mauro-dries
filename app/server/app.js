@@ -22,14 +22,11 @@ import {
 import {
   renderForBrowser,
   addUserForm,
-<<<<<<< HEAD
   renderTestDashboard,
   renderTestAddUser,
   renderTestMedischDashboard,
   renderTestNietMedischDashboard,
-=======
   renderDashboard,
->>>>>>> origin/feature-combined-front&back
 } from './controllers/noodcentraleFront.js';
 
 // login and register imports
@@ -89,21 +86,16 @@ app.put('/api/roles', jwtTokenAuth, updateRole);
 
 //! define routes FRONT-END
 
-<<<<<<< HEAD
-app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
 app.get('/', renderForBrowser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
-app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
 app.get('/medischdash', renderTestMedischDashboard);
 app.get('/nietmedischdash', renderTestNietMedischDashboard);
 
-=======
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
->>>>>>> origin/feature-combined-front&back
 
 //* -------------------------------- DATA INIT --------------------------------
 
