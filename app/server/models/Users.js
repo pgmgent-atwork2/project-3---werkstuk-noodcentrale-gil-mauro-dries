@@ -24,7 +24,7 @@ export default new EntitySchema({
       type: 'one-to-one',
       onDelete: 'CASCADE',
       cascade: true,
-      inverseSide: 'users',
+      inverseSide: 'user',
     },
     role: {
       target: 'Role',

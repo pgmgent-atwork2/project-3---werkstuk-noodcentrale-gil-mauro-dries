@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt';
 import DataSource from '../lib/DataSource.js';
-import UserMeta from '../models/UserMeta.js';
 
 // * users
 export const getUsers = async (req, res) => {
@@ -43,7 +42,7 @@ export const addUser = async (req, res, next) => {
 
     const role = await roleRepository.findOne({
       where: {
-        label: req.body.role,
+        label: req.body.label,
       },
     });
 
@@ -70,7 +69,7 @@ export const addUser = async (req, res, next) => {
       meta: {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        username: 'abcd',
+        GSM: 'abcd',
         avatar: 'aba',
       },
     });
@@ -78,7 +77,8 @@ export const addUser = async (req, res, next) => {
     // save the user
     await userRepository.save(user);
 
-    res.redirect('/moet_gebeuren');
+    // res.redirect('/moet_gebeuren');
+    res.status(200).json({ status: 'succeed' });
   } catch (e) {
     console.log(e.message);
     next(e.message);
