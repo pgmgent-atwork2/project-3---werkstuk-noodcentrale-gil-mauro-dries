@@ -18,12 +18,4 @@ export default new EntitySchema({
       type: 'varchar',
     },
   },
-  relations: {
-    recording: {
-      target: 'Recording',
-      type: 'one-to-one',
-      cascade: true,
-      inverseSide: true,
-    },
-  },
 });

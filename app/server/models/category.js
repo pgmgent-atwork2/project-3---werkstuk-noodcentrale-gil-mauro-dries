@@ -16,17 +16,6 @@ export default new EntitySchema({
     },
   },
   relations: {
-    recording: {
-      type: 'many-to-many',
-      target: 'Recording',
-      joinTable: {
-        name: 'recordings_has_categories',
-        joinColumns: [{ name: 'id_category', referencedColumnName: 'id' }],
-        inverseJoinColumns: [
-          { name: 'id_recording', referencedColumnName: 'id' },
-        ],
-      },
-    },
     role: {
       type: 'many-to-many',
       target: 'Role',

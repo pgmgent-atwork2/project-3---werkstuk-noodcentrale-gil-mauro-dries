@@ -39,9 +39,9 @@ describe('Testing CRUD functions', () => {
         .send({
           firstname: faker.internet.userName(),
           lastname: faker.internet.userName(),
-          username: faker.internet.userName(),
+          GSM: faker.phone.number(),
           avatar: faker.image.avatar(),
-          password: faker.internet.password({ length: 20 }),
+          password: 'kaas',
           email: faker.internet.email({
             firstName: 'Jeanne',
             lastName: 'Doe',
@@ -49,7 +49,6 @@ describe('Testing CRUD functions', () => {
             allowSpecialCharacters: true,
           }),
         });
-
       expect(res.statusCode).toBe(302);
     });
   });

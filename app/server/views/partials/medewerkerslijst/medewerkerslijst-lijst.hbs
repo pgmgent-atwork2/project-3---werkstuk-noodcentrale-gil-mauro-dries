@@ -1,18 +1,24 @@
-<article id='medewerkerslijst'>
-  <div>
-    <div class='medewerkerslijst__name'>
-      <img src='/public/images/logo112.png' alt="avatar 'naam'" />
-      <p>Dries Dhondt</p>
+{{#each findUsers}}
+  <article id='medewerkerslijst'>
+    <div>
+      <div class='medewerkerslijst__name'>
+        <img src={{meta.avatar}} alt="avatar 'naam'" />
+        <p class='list__names'>{{meta.firstname}} {{meta.lastname}}</p>
+      </div>
+      <p>{{email}}</p>
+      <p>{{meta.GSM}}</p>
+      <form id='rol-{{id}}' method='get'>
+        <select data-id='{{id}}' name='rol' required='required' id='rol-{{id}}'>
+          <option value='2'>Medische directeur</option>
+          <option value='3'>Ploegleiders</option>
+          <option value='4'>Deskundige</option>
+          <option value='5'>Functionele directeur</option>
+        </select>
+      </form>
     </div>
-    <p>Dries2003@outlook.be</p>
-    <p>+32 4 609 778 01</p>
-    <form id='rol' method='get'>
-      <select name='rol' required='required' id='rol'>
-        <option value='medische'>Medische directeur</option>
-        <option value='ploegleiders'>Ploegleiders</option>
-        <option value='deskundige'>Deskundige</option>
-        <option value='functionele-directeur'>Functionele directeur</option>
-      </select>
-    </form>
-  </div>
-</article>
+  </article>
+{{/each}}
+
+<script>
+  const secretToken = "nobodynknows";
+</script>

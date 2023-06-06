@@ -273,9 +273,22 @@ input:focus {
   margin: 10px 0 50px 0;
   background: rgba(255, 255, 255, 0.2);
 }
+<<<<<<< HEAD
 /* ----------------- dropwdown --------------- */
 #rol {
   background-color: var(--light);
   border: none;
   border-radius: 5px;
+=======
+
+.list__names{
+    width: 19rem;
+}
+
+/* ----------------- dropwdown --------------- */ 
+#rol{
+    background-color: var(--light);
+    border: none;
+    border-radius: 5px;
+>>>>>>> origin/feature-combined-front&back
 }

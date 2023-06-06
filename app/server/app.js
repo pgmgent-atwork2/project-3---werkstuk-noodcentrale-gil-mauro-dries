@@ -22,18 +22,23 @@ import {
 import {
   renderForBrowser,
   addUserForm,
+<<<<<<< HEAD
   renderTestDashboard,
   renderTestAddUser,
   renderTestMedischDashboard,
   renderTestNietMedischDashboard,
+=======
+  renderDashboard,
+>>>>>>> origin/feature-combined-front&back
 } from './controllers/noodcentraleFront.js';
 
-
 // login and register imports
-import { login, logout } from './controllers/authentication.js';
+import { login, logout, postLogin } from './controllers/authentication.js';
 
 import Authentication from './middleware/validation/Authentication.js';
-import { jwtAuth } from './middleware/jwtAuth.js';
+import { jwtAuth, jwtTokenAuth } from './middleware/jwtAuth.js';
+import { updateRole } from './controllers/api/roles.js';
+import { isAdmin } from './middleware/roleCheck.js';
 
 // create express app
 const app = express();
@@ -70,6 +75,7 @@ app.set('views', path.resolve(SOURCE_PATH, 'views'));
 //! define routes LOGIN
 
 app.get('/login', login);
+app.post('/login', Authentication, postLogin, login);
 app.post('/logout', logout);
 
 //! define routes BACK-END
@@ -79,9 +85,11 @@ app.delete('/api/delUsers', deleteUsers);
 app.post('/add-user', addUser);
 app.put('/api/putUsers', updateUser);
 
+app.put('/api/roles', jwtTokenAuth, updateRole);
 
 //! define routes FRONT-END
 
+<<<<<<< HEAD
 app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
 app.get('/', renderForBrowser);
@@ -92,6 +100,10 @@ app.get('/adminAddUser', renderTestAddUser);
 app.get('/medischdash', renderTestMedischDashboard);
 app.get('/nietmedischdash', renderTestNietMedischDashboard);
 
+=======
+app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
+app.get('/add-user', jwtAuth, addUserForm);
+>>>>>>> origin/feature-combined-front&back
 
 //* -------------------------------- DATA INIT --------------------------------
 
