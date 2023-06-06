@@ -104,9 +104,6 @@ export const updateUser = async (req, res) => {
   }
 };
 
-export const renderDashboard = async (req, res) => {
-  res.render('layouts/adminDashboard');
-};
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };

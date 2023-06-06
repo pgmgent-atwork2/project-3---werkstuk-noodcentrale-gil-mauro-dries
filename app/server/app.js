@@ -22,12 +22,10 @@ import {
 import {
   renderForBrowser,
   addUserForm,
-  renderTestDashboard,
   renderTestAddUser,
   renderTestMedischDashboard,
   renderTestNietMedischDashboard,
   renderTestCollegas,
-  renderDashboard,
 } from './controllers/noodcentraleFront.js';
 
 // login and register imports
