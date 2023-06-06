@@ -10,11 +10,11 @@ export const renderForBrowser = async (req, res) => {
     console.log('this user is found in req', req.user);
     const userRepo = DataSource.getRepository('User');
     const findUsers = await userRepo.find({
-      relations: ['meta'],
+      relations: ['meta', 'role'],
     });
 
     const { token } = req.cookies;
-    console.log('token', token);
+    console.log('fjfhfghjfjfhjghgjjggj', findUsers);
 
     return res.render('layouts/adminDashboard', {
       user: req.user,
