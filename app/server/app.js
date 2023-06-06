@@ -87,7 +87,6 @@ app.put('/api/roles', jwtTokenAuth, updateRole);
 //! define routes FRONT-END
 
 app.get('/adminAddUser', renderTestAddUser);
-app.get('/', renderForBrowser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
 app.get('/adminAddUser', renderTestAddUser);
