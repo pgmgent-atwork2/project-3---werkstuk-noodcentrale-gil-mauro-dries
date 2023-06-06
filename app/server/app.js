@@ -26,7 +26,7 @@ import {
   renderTestAddUser,
   renderTestMedischDashboard,
   renderTestNietMedischDashboard,
-  renderTestcollegas,
+  renderTestCollegas,
 } from './controllers/noodcentraleFront.js';
 
 
@@ -92,7 +92,7 @@ app.get('/admindash', renderTestDashboard);
 app.get('/adminAddUser', renderTestAddUser);
 app.get('/medischdash', renderTestMedischDashboard);
 app.get('/nietmedischdash', renderTestNietMedischDashboard);
-app.get('/collegas', renderTestcollegas);
+app.get('/collega', renderTestCollegas);
 
 
 //* -------------------------------- DATA INIT --------------------------------
