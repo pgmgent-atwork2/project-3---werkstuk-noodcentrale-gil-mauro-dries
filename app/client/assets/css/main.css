@@ -472,3 +472,49 @@ input:focus {
 
 /* ----------------------- collag pagina ----------------------- */
 
+
+
+/* ----------------------- form ------------------- */
+
+.beoordeling__main{
+  background-color: var(--dark);
+  height: 100vh;
+  padding: 3rem 5rem;
+  color: var(--light);
+}
+.beoordeling__main h1{
+  color: var(--primary);
+}
+.form__background__image{
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);  
+  top: 50%;
+  left: 50%;
+}
+.form__background__image + form{
+  z-index: 5;
+  position: relative;
+  margin-top: 2rem;
+}
+.form__background__image + form .rendered-form div{
+  margin-top: 0.6rem;
+}
+.form__background__image + form .rendered-form div p{
+  margin-bottom: 0.3rem;
+}
+.verstuur__button button{
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary);
+  background-color: var(--primary);
+  border-radius: 10px;
+  color: var(--light);
+  transition: 0.4s;
+  cursor: pointer;
+}
+.verstuur__button button:hover{
+  background-color: transparent;
+}

@@ -27,6 +27,7 @@ import {
   renderTestNietMedischDashboard,
   renderTestCollegas,
   renderTestGesprekken,
+  renderTestBeoordeling,
 } from './controllers/noodcentraleFront.js';
 
 // login and register imports
@@ -94,6 +95,7 @@ app.get('/medischdash', renderTestMedischDashboard);
 app.get('/nietmedischdash', renderTestNietMedischDashboard);
 app.get('/collega', renderTestCollegas);
 app.get('/gesprekken', renderTestGesprekken);
+app.get('/form', renderTestBeoordeling);
 
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
