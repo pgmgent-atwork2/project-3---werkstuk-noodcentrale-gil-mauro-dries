@@ -117,3 +117,6 @@ export const renderTestNietMedischDashboard = async (req, res) => {
 export const renderTestCollegas = async (req, res) => {
   res.render('layouts/collega');
 };
+export const renderForm = async (req, res) => {
+  res.render('layouts/form');
+};
