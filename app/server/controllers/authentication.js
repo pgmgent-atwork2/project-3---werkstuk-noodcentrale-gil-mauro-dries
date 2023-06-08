@@ -132,8 +132,6 @@ export const postLogin = async (req, res, next) => {
 
     res.cookie('token', token, { httpOnly: true });
 
-    console.log('kaaskasakskksakska', user);
-
     if (user.role.id === 1) {
       console.log('redirecting to admin dash');
       res.redirect('/admin-dash');

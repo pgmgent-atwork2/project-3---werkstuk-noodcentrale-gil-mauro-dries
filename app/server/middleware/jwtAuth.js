@@ -9,8 +9,6 @@ export const jwtAuth = async (req, res, next) => {
     // get the payload data out of the token
     const { id } = jwt.verify(token, process.env.TOKEN_SALT);
 
-    console.log(id);
-
     // get the user out of the database
     const userRepository = DataSource.getRepository('User');
     const user = await userRepository.findOne({
@@ -18,7 +16,6 @@ export const jwtAuth = async (req, res, next) => {
       relations: ['role'],
     });
 
-    console.log('freddy, we found this auth user:', user);
     // remove the password from the user object
     // so we don't send it to the client, ever, ever, ever
     user.password = '';
@@ -41,8 +38,6 @@ export const jwtTokenAuth = async (req, res, next) => {
   try {
     // get the payload data out of the token
     const { id } = jwt.verify(token, process.env.TOKEN_SALT);
-
-    console.log(id);
 
     // get the user out of the database
     const userRepository = DataSource.getRepository('User');
