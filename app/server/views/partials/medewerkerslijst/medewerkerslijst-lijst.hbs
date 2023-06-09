@@ -1,0 +1,24 @@
+{{#each findUsers}}
+  <article id='medewerkerslijst'>
+    <div>
+      <div class='medewerkerslijst__name'>
+        <img src={{meta.avatar}} alt="avatar 'naam'" />
+        <p class='list__names'>{{meta.firstname}} {{meta.lastname}}</p>
+      </div>
+      <p>{{email}}</p>
+      <p>{{meta.GSM}}</p>
+      <form id='rol-{{id}}' method='get'>
+        <select data-id='{{id}}' name='rol' required='required' id='rol-{{id}}'>
+          <option {{#isSelected role.id 2}} {{/isSelected}} value='2'>Medische directeur</option>
+          <option {{#isSelected role.id 3}} {{/isSelected}} value='3'>Functionele directeur</option>
+          <option {{#isSelected role.id 4}} {{/isSelected}} value='4'>Ploegleiders</option>
+          <option {{#isSelected role.id 5}} {{/isSelected}} value='5'>Deskundige</option>
+        </select>
+      </form>
+    </div>
+  </article>
+{{/each}}
+
+<script>
+  const secretToken = "nobodynknows";
+</script>

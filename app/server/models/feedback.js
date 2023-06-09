@@ -27,12 +27,5 @@ export default new EntitySchema({
         name: 'user_id',
       },
     },
-    recording: {
-      target: 'Recording',
-      type: 'one-to-one',
-      joinColumn: {
-        name: 'recording_id',
-      },
-    },
   },
 });

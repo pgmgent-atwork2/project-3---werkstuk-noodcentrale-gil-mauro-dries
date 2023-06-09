@@ -24,13 +24,14 @@ export default new EntitySchema({
       type: 'one-to-one',
       onDelete: 'CASCADE',
       cascade: true,
-      inverseSide: 'users',
+      inverseSide: 'user',
     },
     role: {
       target: 'Role',
       type: 'many-to-one',
       joinColumn: true,
       inverseSide: 'users',
+      cascade: true,
     },
     feedback: {
       target: 'Feedback',

@@ -9,31 +9,13 @@
     <title>Inloggen</title>
   </head>
   <body>
-    <nav class="nav__list">
-      <ul>
-        <input id="searchField" type="text" placeholder="Search..">
-        <h2>Medewerkerslijst</h2>
-        <div class="Admin-profile">
-            <div>
-              <h4>Big boss</h4> 
-              <span>Super Admin</span>
-            </div>
-            <img src="/public/images/superAdmin.jpg" alt="">
-        </div>
-      </ul>
-    </nav>
+    {{>header/admin-header/medewerkerslijst-header}}
     <main id="list">
         <div class="list__top">
           <h2>Alle medewerkers</h2>
           <div>
-            <button class="filter-list">
-              <img src="/public/images/filter.png" alt="icon filter">
-              <p>Filter</p>
-            </button>
-            <button class="add-person">
-              <img width="24px" height="24px" src="/public/images/person.png" alt="icon filter">
-              <p>Voeg toe</p>
-            </button>
+            {{>buttons/medewerkerslijst-filter-button}}
+            {{>buttons/mederwerkerslijst-toevoegen-button}}
           </div>
         </div>
         <section class="list">
@@ -44,25 +26,12 @@
             <p>Rol</p>
           </div>
           <hr>
-          <article id="medewerkerslijst">
-              <div>
-                  <div class="medewerkerslijst__name">
-                    <img src="/public/images/logo112.png" alt="avatar 'naam'">
-                    <p>Dries Dhondt</p>
-                  </div>
-                  <p>Dries2003@outlook.be</p>
-                  <p>+32 4 609 778 01</p>
-                  <form id="rol" method="get">
-                    <select name="rol" required="required" id='rol'>
-                      <option value="medische">Medische directeur</option>
-                      <option value="ploegleiders">Ploegleiders</option>
-                      <option value="deskundige">Deskundige</option>
-                      <option value="functionele-directeur">Functionele directeur</option>
-                    </select>
-                  </form>
-              </div>
-          </article>
+          {{> medewerkerslijst/medewerkerslijst-lijst}}
         </section>
     </main>
+    <script>
+      const jwt = "{{ jwtToken }}";
+    </script>
+    <script src="/public/scripts/app.js"></script>
   </body>
 </html>

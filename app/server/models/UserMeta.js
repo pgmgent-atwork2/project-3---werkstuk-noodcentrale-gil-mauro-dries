@@ -17,18 +17,21 @@ export default new EntitySchema({
     lastname: {
       type: 'varchar',
     },
-    username: {
+    GSM: {
       type: 'varchar',
     },
     avatar: {
       type: 'varchar',
+      nullable: true,
     },
   },
   relations: {
-    users: {
+    user: {
       target: 'User',
+      onDelete: 'CASCADE',
       type: 'one-to-one',
       joinColumn: true,
+      inverseSide: 'meta',
     },
   },
 });
