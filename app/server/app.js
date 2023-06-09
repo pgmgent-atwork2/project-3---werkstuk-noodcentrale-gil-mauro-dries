@@ -36,6 +36,7 @@ import Authentication from './middleware/validation/Authentication.js';
 import { jwtAuth, jwtTokenAuth } from './middleware/jwtAuth.js';
 import { updateRole } from './controllers/api/roles.js';
 import { isAdmin } from './middleware/roleCheck.js';
+import HandlebarsHelpers from './lib/helpers/HandlebarHelpers.js';
 
 // create express app
 const app = express();
@@ -58,7 +59,7 @@ app.use(cookieParser());
 
 //* -------------------------------- HANDLEBARS -------------------------------
 const hbs = create({
-  // helpers: handlebarsHelpers,
+  helpers: HandlebarsHelpers,
   extname: 'hbs',
   // defaultLayout: "main", // kan in comments
   // layoutsDir: path.resolve("src", "views", "layouts"),  // kan in comments
@@ -94,7 +95,6 @@ app.get('/medischdash', renderTestMedischDashboard);
 app.get('/nietmedischdash', renderTestNietMedischDashboard);
 app.get('/collega', renderTestCollegas);
 app.get('/gesprekken', renderTestGesprekken);
-
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
 

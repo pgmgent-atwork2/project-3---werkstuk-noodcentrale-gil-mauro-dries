@@ -9,10 +9,10 @@
       <p>{{meta.GSM}}</p>
       <form id='rol-{{id}}' method='get'>
         <select data-id='{{id}}' name='rol' required='required' id='rol-{{id}}'>
-          <option value='2'>Medische directeur</option>
-          <option value='3'>Ploegleiders</option>
-          <option value='4'>Deskundige</option>
-          <option value='5'>Functionele directeur</option>
+          <option {{#isSelected role.id 2}} {{/isSelected}} value='2'>Medische directeur</option>
+          <option {{#isSelected role.id 3}} {{/isSelected}} value='3'>Functionele directeur</option>
+          <option {{#isSelected role.id 4}} {{/isSelected}} value='4'>Ploegleiders</option>
+          <option {{#isSelected role.id 5}} {{/isSelected}} value='5'>Deskundige</option>
         </select>
       </form>
     </div>

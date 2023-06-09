@@ -7,14 +7,12 @@ import DataSource from '../lib/DataSource.js';
 
 export const renderForBrowser = async (req, res) => {
   try {
-    console.log('this user is found in req', req.user);
     const userRepo = DataSource.getRepository('User');
     const findUsers = await userRepo.find({
-      relations: ['meta'],
+      relations: ['meta', 'role'],
     });
 
     const { token } = req.cookies;
-    console.log('token', token);
 
     return res.render('layouts/adminDashboard', {
       user: req.user,
@@ -45,8 +43,6 @@ export const addUserForm = async (req, res, next) => {
       },
     });
 
-    console.log(req.body.username);
-
     if (!role) {
       console.log('Role not found');
       req.formErrors = [{ message: 'Rol bestaat niet.' }];
@@ -59,23 +55,25 @@ export const addUserForm = async (req, res, next) => {
     }
 
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-
+    console.log(req.body);
     // create a new user
     const user = await userRepository.create({
       email: req.body.email,
       password: hashedPassword,
-      role,
+      role: {
+        id: req.body.role,
+      },
       meta: {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         GSM: '0460977802',
-        avatar: 'aba',
+        // avatar: 'aba',
       },
     });
 
     // save the user
-    await userRepository.save(user);
-
+    const answer = await userRepository.insert(user);
+    console.log('test', answer);
     res.redirect('/admin-dash');
   } catch (e) {
     console.log(e.message);

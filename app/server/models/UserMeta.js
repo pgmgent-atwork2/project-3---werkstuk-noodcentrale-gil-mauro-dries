@@ -22,6 +22,7 @@ export default new EntitySchema({
     },
     avatar: {
       type: 'varchar',
+      nullable: true,
     },
   },
   relations: {

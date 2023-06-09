@@ -46,8 +46,6 @@ export const addUser = async (req, res, next) => {
       },
     });
 
-    console.log(req.body.username);
-
     if (!role) {
       console.log('Role not found');
       req.formErrors = [{ message: 'Rol bestaat niet.' }];
@@ -60,25 +58,27 @@ export const addUser = async (req, res, next) => {
     }
 
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-
+    console.log(req.body);
     // create a new user
     const user = await userRepository.create({
       email: req.body.email,
       password: hashedPassword,
-      role,
+      role: {
+        id: parseInt(req.body.role),
+      },
       meta: {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        GSM: 'abcd',
-        avatar: 'aba',
+        GSM: req.body.phone,
+        avatar: 'img',
       },
     });
 
     // save the user
     await userRepository.save(user);
 
-    // res.redirect('/moet_gebeuren');
-    res.status(200).json({ status: 'succeed' });
+    res.redirect('/admin-dash');
+    // res.status(200).json({ status: 'succeed' });
   } catch (e) {
     console.log(e.message);
     next(e.message);
