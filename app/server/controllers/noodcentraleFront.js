@@ -119,3 +119,7 @@ export const renderTestCollegas = async (req, res) => {
 export const renderTestGesprekken = async (req, res) => {
   res.render('layouts/gesprekken');
 };
+
+export const renderTestBeoordeling = async (req, res) => {
+  res.render('layouts/form');
+};
