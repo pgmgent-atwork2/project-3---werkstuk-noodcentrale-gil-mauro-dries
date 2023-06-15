@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import DataSource from '../lib/DataSource.js';
 
 export const jwtAuth = async (req, res, next) => {
-  console.log('checking jwt auth');
   const { token } = req.cookies;
 
   try {
@@ -23,6 +22,7 @@ export const jwtAuth = async (req, res, next) => {
     req.user = user;
 
     // go to the next chain
+    console.log('checking jwt auth');
     return next();
   } catch (e) {
     console.log('ejejeje, something mis', e);

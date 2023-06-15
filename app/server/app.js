@@ -27,6 +27,7 @@ import {
   renderTestNietMedischDashboard,
   renderTestCollegas,
   renderTestGesprekken,
+  putUser,
   renderTestBeoordeling,
 } from './controllers/noodcentraleFront.js';
 
@@ -103,6 +104,7 @@ app.get('/form', renderTestBeoordeling);
 >>>>>>> main
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
+app.post('/put-user', putUser);
 
 //* -------------------------------- DATA INIT --------------------------------
 

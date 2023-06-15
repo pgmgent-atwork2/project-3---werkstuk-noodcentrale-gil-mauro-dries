@@ -9,8 +9,8 @@ export async function createRandomUser() {
   const hashedPassword = await bcrypt.hash(plainPassword, 10);
   return {
     meta: {
-      firstname: faker.internet.userName(),
-      lastname: faker.internet.userName(),
+      firstname: faker.person.firstName(),
+      lastname: faker.person.lastName(),
       GSM: faker.phone.number(),
       avatar: faker.image.avatar(),
     },

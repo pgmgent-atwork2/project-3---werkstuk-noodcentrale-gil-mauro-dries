@@ -41,3 +41,52 @@ function getCookie(name) {
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
+
+const medischeButton = document.getElementById('medische');
+const functioneelButton = document.getElementById('functioneel');
+const ploegleidersButton = document.getElementById('ploegleiders');
+const deskundigenButton = document.getElementById('deskundigen');
+
+async function filter() {
+  const roles = await fetch('/api/roles/', {
+    method: 'GET',
+  });
+
+  console.log(roles);
+
+  try {
+    if (medischeButton === roleSelects[2]) {
+      console.log(roleSelects);
+    } else if (functioneelButton === roleSelects[3]) {
+      console.log(roleSelects);
+    } else if (ploegleidersButton === roleSelects[4]) {
+      console.log(roleSelects);
+    } else if (deskundigenButton === roleSelects[5]) {
+      console.log(roleSelects);
+    } else {
+      console.log(roleSelects);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+medischeButton.addEventListener('click', () => {
+  console.log('medischeButton clicked');
+  filter();
+});
+
+functioneelButton.addEventListener('click', () => {
+  console.log('functioneelButton clicked');
+  filter();
+});
+
+ploegleidersButton.addEventListener('click', () => {
+  console.log('ploegleidersButton clicked');
+  filter();
+});
+
+deskundigenButton.addEventListener('click', () => {
+  console.log('deskundigenButton clicked');
+  filter();
+});
