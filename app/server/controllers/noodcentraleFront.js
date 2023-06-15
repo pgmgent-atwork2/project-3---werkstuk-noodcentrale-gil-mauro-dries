@@ -102,6 +102,32 @@ export const updateUser = async (req, res) => {
   }
 };
 
+export const putUser = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id, firstname, lastname, email, GSM } = req.body;
+    console.log(req.body);
+    const userUpdate = await userRepo.findOne({
+      relations: ['meta'],
+      where: {
+        id,
+      },
+    });
+
+    console.log("i approve this meta req:", req.body);
+    await console.log("i approve this meta:", userUpdate);
+
+    userUpdate.meta.firstname = firstname;
+    userUpdate.meta.lastname = lastname;
+    userUpdate.email = email;
+    userUpdate.meta.GSM = GSM;
+    await userRepo.save(userUpdate);
+    res.redirect('/admin-dash');
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };

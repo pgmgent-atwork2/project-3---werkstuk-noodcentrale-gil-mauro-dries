@@ -470,5 +470,14 @@ input:focus {
   color: white;
 }
 
+.form-list{
+  display: flex;
+  gap: 2rem;
+}
+
+.form-list input{
+  max-width: 6rem;
+}
+
 /* ----------------------- collag pagina ----------------------- */
 
