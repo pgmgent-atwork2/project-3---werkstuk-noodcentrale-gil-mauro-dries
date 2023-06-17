@@ -16,7 +16,7 @@ export async function createRandomUser() {
     },
     email: faker.internet.email(),
     password: hashedPassword,
-    role: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
+    role: faker.helpers.arrayElement([2, 3, 4, 5]),
   };
 }
 

@@ -54,39 +54,25 @@ async function filter() {
 
   console.log(roles);
 
-  try {
-    if (medischeButton === roleSelects[2]) {
-      console.log(roleSelects);
-    } else if (functioneelButton === roleSelects[3]) {
-      console.log(roleSelects);
-    } else if (ploegleidersButton === roleSelects[4]) {
-      console.log(roleSelects);
-    } else if (deskundigenButton === roleSelects[5]) {
-      console.log(roleSelects);
-    } else {
-      console.log(roleSelects);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
 
-medischeButton.addEventListener('click', () => {
-  console.log('medischeButton clicked');
-  filter();
+medischeButton.addEventListener('click', (e) => {
+  console.log(e.target.dataset.value);
+  window.location.href = '?roleId=2';
+  console.log("window location:", window.location.href); 
 });
 
 functioneelButton.addEventListener('click', () => {
   console.log('functioneelButton clicked');
-  filter();
+  window.location.href += '?roleId=3'; 
 });
 
 ploegleidersButton.addEventListener('click', () => {
   console.log('ploegleidersButton clicked');
-  filter();
+  window.location.href += '?roleId=4'; 
+
 });
 
 deskundigenButton.addEventListener('click', () => {
   console.log('deskundigenButton clicked');
-  filter();
+  window.location.href += '?roleId=5'; 
 });

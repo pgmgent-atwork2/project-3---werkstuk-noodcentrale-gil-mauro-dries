@@ -7,9 +7,21 @@ import DataSource from '../lib/DataSource.js';
 
 export const renderForBrowser = async (req, res) => {
   try {
+    const { roleId } = req.query;
+    console.log('rreqssss', req.query);
+    const roleRepo = DataSource.getRepository('Role');
+    const findRole = await roleRepo.findOne({
+      where: {
+        id: roleId,
+      },
+    });
+
     const userRepo = DataSource.getRepository('User');
     const findUsers = await userRepo.find({
       relations: ['meta', 'role'],
+      where: {
+        role: findRole,
+      },
     });
 
     const { token } = req.cookies;
@@ -114,8 +126,8 @@ export const putUser = async (req, res) => {
       },
     });
 
-    console.log("i approve this meta req:", req.body);
-    await console.log("i approve this meta:", userUpdate);
+    console.log('i approve this meta req:', req.body);
+    await console.log('i approve this meta:', userUpdate);
 
     userUpdate.meta.firstname = firstname;
     userUpdate.meta.lastname = lastname;
@@ -131,21 +143,21 @@ export const putUser = async (req, res) => {
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };
-export const renderTestMedischDashboard = async (req, res) => {
+export const renderMedischDashboard = async (req, res) => {
   res.render('layouts/medischDashboard');
 };
-export const renderTestNietMedischDashboard = async (req, res) => {
+export const renderNietMedischDashboard = async (req, res) => {
   res.render('layouts/nietMedischDashboard');
 };
 
-export const renderTestCollegas = async (req, res) => {
+export const renderCollegas = async (req, res) => {
   res.render('layouts/collega');
 };
 
-export const renderTestGesprekken = async (req, res) => {
+export const renderGesprekken = async (req, res) => {
   res.render('layouts/gesprekken');
 };
 
-export const renderTestBeoordeling = async (req, res) => {
+export const renderBeoordeling = async (req, res) => {
   res.render('layouts/form');
 };

@@ -237,21 +237,31 @@ input:focus {
 .list .list-names + hr {
   border-color: var(--dark);
 }
-#medewerkerslijst div {
+.medewerkerslijst div {
   display: flex;
+  font-size: 13px;
   justify-content: space-between;
   margin-top: 1rem;
 }
-#medewerkerslijst div .medewerkerslijst__name {
+.medewerkerslijst div .medewerkerslijst__name {
   align-items: center;
   margin-top: 0;
   gap: 0.5rem;
 }
-#medewerkerslijst div .medewerkerslijst__name img {
+.medewerkerslijst div .medewerkerslijst__name img {
   width: 30px;
   height: 30px;
   object-fit: contain;
   border-radius: 1rem;
+}
+
+.form-list{
+  display: flex;
+  gap: 2rem;
+}
+
+.form-list input{
+  max-width: 8rem;
 }
 
 .GoBack {
@@ -297,7 +307,7 @@ input:focus {
 .nietMedisch__dashboard aside{
   background-color: var(--dark);
   width: 100%;
-  height: 89.1vh;
+  height: 100%;
   z-index: -1;
 }
 .nietMedisch__dashboard aside div{
@@ -424,6 +434,9 @@ input:focus {
 }
 .collega__calls__text, .recent__calls__text{
   padding: 0.5rem 1rem;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 100%;
 }
 .collega__calls__text h2, .recent__calls__text h2{
   color: white;
@@ -470,14 +483,7 @@ input:focus {
   color: white;
 }
 
-.form-list{
-  display: flex;
-  gap: 2rem;
-}
 
-.form-list input{
-  max-width: 6rem;
-}
 
 /* ----------------------- collag pagina ----------------------- */
 
