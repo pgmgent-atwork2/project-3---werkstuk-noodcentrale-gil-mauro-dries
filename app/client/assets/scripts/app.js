@@ -3,16 +3,6 @@ console.log(roleSelects);
 
 console.log(document.cookie);
 
-roleSelects.forEach((roleSelect) => {
-  roleSelect.addEventListener('change', (e) => {
-    const { id } = e.target.dataset;
-    const role = e.target.options[e.target.selectedIndex].value;
-
-    console.log(id, role);
-    updateRole(id, role);
-  });
-});
-
 async function updateRole(id, role) {
   // (this.options[this.selectedIndex].value)
   try {
@@ -36,6 +26,16 @@ async function updateRole(id, role) {
   }
 }
 
+roleSelects.forEach((roleSelect) => {
+  roleSelect.addEventListener('change', (e) => {
+    const { id } = e.target.dataset;
+    const role = e.target.options[e.target.selectedIndex].value;
+
+    console.log(id, role);
+    updateRole(id, role);
+  });
+});
+
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
@@ -46,33 +46,34 @@ const medischeButton = document.getElementById('medische');
 const functioneelButton = document.getElementById('functioneel');
 const ploegleidersButton = document.getElementById('ploegleiders');
 const deskundigenButton = document.getElementById('deskundigen');
+const allButton = document.getElementById('all');
 
-async function filter() {
-  const roles = await fetch('/api/roles/', {
-    method: 'GET',
-  });
-
-  console.log(roles);
-
+if (window.location.href === 'http://localhost:3000/admin-dash') {
+  window.location.href = 'http://localhost:3000/admin-dash/?roleId=0';
+}
 
 medischeButton.addEventListener('click', (e) => {
   console.log(e.target.dataset.value);
-  window.location.href = '?roleId=2';
-  console.log("window location:", window.location.href); 
+  window.location.href = 'http://localhost:3000/admin-dash/?roleId=2';
+  console.log('window location:', window.location.href);
 });
 
 functioneelButton.addEventListener('click', () => {
   console.log('functioneelButton clicked');
-  window.location.href += '?roleId=3'; 
+  window.location.href = 'http://localhost:3000/admin-dash/?roleId=3';
 });
 
 ploegleidersButton.addEventListener('click', () => {
   console.log('ploegleidersButton clicked');
-  window.location.href += '?roleId=4'; 
-
+  window.location.href = 'http://localhost:3000/admin-dash/?roleId=4';
 });
 
 deskundigenButton.addEventListener('click', () => {
   console.log('deskundigenButton clicked');
-  window.location.href += '?roleId=5'; 
+  window.location.href = 'http://localhost:3000/admin-dash/?roleId=5';
+});
+
+allButton.addEventListener('click', () => {
+  console.log('allButton clicked');
+  window.location.href = 'http://localhost:3000/admin-dash/?roleId=0';
 });

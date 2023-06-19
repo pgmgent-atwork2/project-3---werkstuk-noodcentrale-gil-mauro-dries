@@ -38,7 +38,7 @@ import { login, logout, postLogin } from './controllers/authentication.js';
 import Authentication from './middleware/validation/Authentication.js';
 import { jwtAuth, jwtTokenAuth } from './middleware/jwtAuth.js';
 import { updateRole } from './controllers/api/roles.js';
-import { isAdmin } from './middleware/roleCheck.js';
+import { isAdmin, isMedische, isNotMedische } from './middleware/roleCheck.js';
 import HandlebarsHelpers from './lib/helpers/HandlebarHelpers.js';
 
 // create express app
@@ -97,8 +97,13 @@ app.put('/api/roles', jwtTokenAuth, updateRole);
 app.get('/admin-add-user', renderTestAddUser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
-app.get('/medisch-dash', renderMedischDashboard);
-app.get('/niet-medisch-dash', renderNietMedischDashboard);
+app.get('/medisch-dash', jwtAuth, isMedische, renderMedischDashboard);
+app.get(
+  '/niet-medisch-dash',
+  jwtAuth,
+  isNotMedische,
+  renderNietMedischDashboard
+);
 app.get('/collegas', renderCollegas);
 app.get('/gesprekken', renderGesprekken);
 app.get('/form', renderBeoordeling);
