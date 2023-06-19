@@ -21,17 +21,5 @@ export default new EntitySchema({
       type: 'one-to-many',
       inverseSide: 'role',
     },
-
-    category: {
-      type: 'many-to-many',
-      target: 'Category',
-      joinTable: {
-        name: 'categorys_has_categories',
-        joinColumns: [{ name: 'id_role', referencedColumnName: 'id' }],
-        inverseJoinColumns: [
-          { name: 'id_category', referencedColumnName: 'id' },
-        ],
-      },
-    },
   },
 });
