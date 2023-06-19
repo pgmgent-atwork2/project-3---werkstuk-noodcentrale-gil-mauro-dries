@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/reset.css" />
+    <link rel="stylesheet" href="/public/css/main.css"/>
+    <link rel="stylesheet" href="/public/css/mediaQuerry.css"/>
+    <title>Inloggen</title>
+  </head>
+  <body>
+    {{>header/overall-header}}
+    <main class="nietMedisch__dashboard">
+        {{>sidebar/sidebar-niet-medisch}}
+        <section class="right__section">
+             {{>header/dashboard-header}}
+            <article>
+                <h3 class="title__live">Collega's</h3>
+                <ul class="liveLuisteren__list">
+                    <li>
+                        <div>
+                            <img src="/public/images/collega.png" alt="telephone icon">
+                        </div>
+                        <p>Gil verstelt</p>
+                        <p>email</p>
+                        <p>gsm nummer</p>
+                        <button><a href="/feedback">Beoordeel</a></button>
+                    </li>
+                    <hr>
+                    <li>
+                        <div>
+                            <img src="/public/images/collega.png" alt="telephone icon">
+                        </div>
+                        <p>Gil verstelt</p>
+                        <p>email</p>
+                        <p>gsm nummer</p>
+                        <button><a href="/feedback">Beoordeel</a></button>
+                    </li>
+                    <hr>
+                </ul>
+            </article>
+        </section>
+
+        
+    </main>
+  </body>
+</html>

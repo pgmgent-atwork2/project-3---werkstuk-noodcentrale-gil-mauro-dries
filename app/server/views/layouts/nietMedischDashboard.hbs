@@ -10,33 +10,9 @@
     <title>Dashboard-niet medisch</title>
 </head>
 <body>
-    <nav class="nav__list nav__listNM">
-      <ul>
-        <div></div>
-        <div class="Admin-profile">
-            <div>
-              <h4>Dries Dhondt</h4> 
-              <span>ROLLLL</span>
-            </div>
-            <img src="/public/images/superAdmin.jpg" alt="">
-        </div>
-      </ul>
-    </nav>
+    {{>header/overall-header}}
     <main class="nietMedisch__dashboard">
-        <aside>
-            <div>
-                <img src="/public/images/dashboard.png" alt="dashboard icon">
-                <p>Dashboard</p>
-            </div>
-            <div>
-                <img src="/public/images/gesprekken.png" alt="gesprekken icon">
-                <p>Gesprekken</p>
-            </div>
-            <div>
-                <img src="/public/images/collega.png" alt="collega icon">
-                <p>Collega's</p>
-            </div>
-        </aside>
+        {{>sidebar/sidebar-niet-medisch}}
         <section class="right__section">
             <header>
                 <div class="header__container">

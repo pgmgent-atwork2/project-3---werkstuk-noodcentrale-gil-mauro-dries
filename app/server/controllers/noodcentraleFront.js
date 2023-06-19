@@ -164,22 +164,6 @@ export const renderMedischDashboard = async (req, res) => {
 };
 
 export const renderNietMedischDashboard = async (req, res) => {
-  try {
-    const userRepo = DataSource.getRepository('User');
-    const { id } = req.user;
-    const findUser = await userRepo.findOne({
-      relations: ['meta', 'role'],
-      where: {
-        id,
-      },
-    });
-
-    res.render('layouts/nietMedischDashboard', {
-      findUser,
-    });
-  } catch (e) {
-    console.error(e);
-  }
 };
 
 export const renderMedischCollegas = async (req, res) => {
@@ -257,7 +241,6 @@ export const renderNietMedischCollegas = async (req, res) => {
     console.error(e);
   }
 };
-
 export const renderBeoordeling = async (req, res) => {
   res.render('layouts/form');
 };
