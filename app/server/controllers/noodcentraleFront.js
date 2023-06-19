@@ -165,18 +165,23 @@ export const renderMedischDashboard = async (req, res) => {
     console.error(e);
   }
 };
+export const renderMedischCollegas = async (req, res) => {
+  res.render('layouts/medische-collega');
+};
+
+export const renderMedischGesprekken = async (req, res) => {
+  res.render('layouts/medische-gesprekken');
+};
 export const renderNietMedischDashboard = async (req, res) => {
   res.render('layouts/nietMedischDashboard');
 };
-
-export const renderCollegas = async (req, res) => {
-  res.render('layouts/collega');
+export const renderNietMedischCollegas = async (req, res) => {
+  res.render('layouts/nietMedische-collega');
 };
 
-export const renderGesprekken = async (req, res) => {
-  res.render('layouts/gesprekken');
+export const renderNietMedischGesprekken = async (req, res) => {
+  res.render('layouts/nietMedische-gesprekken');
 };
-
 export const renderBeoordeling = async (req, res) => {
   res.render('layouts/form');
 };

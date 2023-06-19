@@ -26,8 +26,10 @@ import {
   renderTestAddUser,
   renderMedischDashboard,
   renderNietMedischDashboard,
-  renderCollegas,
-  renderGesprekken,
+  renderMedischCollegas,
+  renderMedischGesprekken,
+  renderNietMedischCollegas,
+  renderNietMedischGesprekken,
   putUser,
   renderBeoordeling,
 } from './controllers/noodcentraleFront.js';
@@ -104,8 +106,10 @@ app.get(
   isNotMedische,
   renderNietMedischDashboard
 );
-app.get('/collegas', renderCollegas);
-app.get('/gesprekken', renderGesprekken);
+app.get('/medisch-collegas', renderMedischCollegas);
+app.get('/medisch-gesprekken', renderMedischGesprekken);
+app.get('/niet-medisch-collegas', renderNietMedischCollegas);
+app.get('/niet-medisch-gesprekken', renderNietMedischGesprekken);
 app.get('/form', renderBeoordeling);
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
