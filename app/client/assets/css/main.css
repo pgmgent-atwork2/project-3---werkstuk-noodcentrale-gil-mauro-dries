@@ -240,13 +240,13 @@ input:focus {
 .medewerkerslijst div {
   display: flex;
   font-size: 13px;
-  justify-content: space-between;
+  align-items: center;
   margin-top: 1rem;
 }
 .medewerkerslijst div .medewerkerslijst__name {
   align-items: center;
   margin-top: 0;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 .medewerkerslijst div .medewerkerslijst__name img {
   width: 30px;
@@ -258,6 +258,7 @@ input:focus {
 .form-list{
   display: flex;
   gap: 2rem;
+  width: 80vw;
 }
 
 .form-list input{
@@ -551,4 +552,20 @@ input:focus {
 .sidebar__navigation a:hover{
   cursor: pointer;
   gap: 2rem;
+}
+
+
+/* --------------------- lottie file ---------------------- */
+#not-allowed{
+  background-color: var(--dark);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--light);
+  text-transform: uppercase;
+}
+.lottie-animation{
+  border: none;
 }

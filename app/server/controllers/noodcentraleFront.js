@@ -8,7 +8,6 @@ import DataSource from '../lib/DataSource.js';
 export const renderForBrowser = async (req, res) => {
   try {
     const { roleId } = req.query;
-    console.log('rreqssss', req.query);
     const roleRepo = DataSource.getRepository('Role');
     const findRole = await roleRepo.findOne({
       where: {
@@ -25,7 +24,7 @@ export const renderForBrowser = async (req, res) => {
     });
 
     const { token } = req.cookies;
-
+    console.log(req.user, 'lol');
     return res.render('layouts/adminDashboard', {
       user: req.user,
       findUsers,
@@ -134,6 +133,17 @@ export const putUser = async (req, res) => {
     userUpdate.email = email;
     userUpdate.meta.GSM = GSM;
     await userRepo.save(userUpdate);
+    res.redirect('/admin-dash');
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const userRepo = DataSource.getRepository('User');
+    await userRepo.remove({ id });
     res.redirect('/admin-dash');
   } catch (e) {
     console.log(e);

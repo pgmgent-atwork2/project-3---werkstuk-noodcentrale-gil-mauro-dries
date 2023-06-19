@@ -8,10 +8,16 @@
           <input type="text" value="{{meta.firstname}}" name="firstname" class='list__names'>
           <input type="text" value="{{meta.lastname}}" name="lastname" class='list__names'>
         </div>
-        <input type="text" value="{{email}}" name="email" class='list__names'>
-        <input type="text" value="{{meta.GSM}}" name="GSM" class='list__names'>
+        <input type="text" value="{{email}}" name="email" class='list__names list__email'>
+        <input type="text" value="{{meta.GSM}}" name="GSM" class='list__names list__gsm'>
         <button type="submit">submit</button>
       </form>
+
+                  <form method="POST" action='/delete-user'>
+                    <input type="hidden" name="id" value="{{id}}">
+                    <button class="trash-btn" type="submit" href="#">delete</button>
+                </form>
+
       <form id='rol-{{id}}' method='get'>
         <select data-id='{{id}}' name='rol' required='required' id='rol-select-{{id}}'>
           <option {{#isSelected role.id 2}} {{/isSelected}} value='2'>Medische directeur</option>

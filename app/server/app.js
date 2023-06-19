@@ -32,6 +32,7 @@ import {
   renderNietMedischGesprekken,
   putUser,
   renderBeoordeling,
+  deleteUser,
 } from './controllers/noodcentraleFront.js';
 
 // login and register imports
@@ -99,6 +100,10 @@ app.put('/api/roles', jwtTokenAuth, updateRole);
 app.get('/admin-add-user', jwtAuth, isAdmin, renderTestAddUser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
+<<<<<<< HEAD
+app.get('/adminAddUser', renderTestAddUser);
+=======
+>>>>>>> origin/main
 app.get('/medisch-dash', jwtAuth, isMedische, renderMedischDashboard);
 app.get(
   '/niet-medisch-dash',
@@ -124,6 +129,7 @@ app.get('/form', renderBeoordeling);
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
 app.post('/put-user', putUser);
+app.post('/delete-user', deleteUser);
 
 //* -------------------------------- DATA INIT --------------------------------
 
