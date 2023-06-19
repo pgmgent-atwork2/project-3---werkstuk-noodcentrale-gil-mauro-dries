@@ -100,10 +100,6 @@ app.put('/api/roles', jwtTokenAuth, updateRole);
 app.get('/admin-add-user', jwtAuth, isAdmin, renderTestAddUser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
-<<<<<<< HEAD
-app.get('/adminAddUser', renderTestAddUser);
-=======
->>>>>>> origin/main
 app.get('/medisch-dash', jwtAuth, isMedische, renderMedischDashboard);
 app.get(
   '/niet-medisch-dash',
