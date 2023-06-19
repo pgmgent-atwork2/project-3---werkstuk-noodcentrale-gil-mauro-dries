@@ -26,10 +26,13 @@ import {
   renderTestAddUser,
   renderMedischDashboard,
   renderNietMedischDashboard,
-  renderCollegas,
-  renderGesprekken,
+  renderMedischCollegas,
+  renderNietMedischCollegas,
+  renderMedischGesprekken,
+  renderNietMedischGesprekken,
   putUser,
   renderBeoordeling,
+  deleteUser,
 } from './controllers/noodcentraleFront.js';
 
 // login and register imports
@@ -94,10 +97,13 @@ app.put('/api/putUsers', updateUser);
 app.put('/api/roles', jwtTokenAuth, updateRole);
 
 //! define routes FRONT-END
-app.get('/admin-add-user', renderTestAddUser);
+app.get('/admin-add-user', jwtAuth, isAdmin, renderTestAddUser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
+<<<<<<< HEAD
 app.get('/adminAddUser', renderTestAddUser);
+=======
+>>>>>>> origin/main
 app.get('/medisch-dash', jwtAuth, isMedische, renderMedischDashboard);
 app.get(
   '/niet-medisch-dash',
@@ -105,12 +111,25 @@ app.get(
   isNotMedische,
   renderNietMedischDashboard
 );
-app.get('/collegas', renderCollegas);
-app.get('/gesprekken', renderGesprekken);
+app.get('/medisch-collegas', jwtAuth, isMedische, renderMedischCollegas);
+app.get('/medisch-gesprekken', jwtAuth, isMedische, renderMedischGesprekken);
+app.get(
+  '/niet-medisch-collegas',
+  jwtAuth,
+  isNotMedische,
+  renderNietMedischCollegas
+);
+app.get(
+  '/niet-medisch-gesprekken',
+  jwtAuth,
+  isNotMedische,
+  renderNietMedischGesprekken
+);
 app.get('/form', renderBeoordeling);
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
 app.post('/put-user', putUser);
+app.post('/delete-user', deleteUser);
 
 //* -------------------------------- DATA INIT --------------------------------
 

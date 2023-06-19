@@ -8,7 +8,6 @@ import DataSource from '../lib/DataSource.js';
 export const renderForBrowser = async (req, res) => {
   try {
     const { roleId } = req.query;
-    console.log('rreqssss', req.query);
     const roleRepo = DataSource.getRepository('Role');
     const findRole = await roleRepo.findOne({
       where: {
@@ -25,7 +24,7 @@ export const renderForBrowser = async (req, res) => {
     });
 
     const { token } = req.cookies;
-
+    console.log(req.user, 'lol');
     return res.render('layouts/adminDashboard', {
       user: req.user,
       findUsers,
@@ -140,24 +139,134 @@ export const putUser = async (req, res) => {
   }
 };
 
+export const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const userRepo = DataSource.getRepository('User');
+    await userRepo.remove({ id });
+    res.redirect('/admin-dash');
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };
+
 export const renderMedischDashboard = async (req, res) => {
-  res.render('layouts/medischDashboard');
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/medischDashboard', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
+
 export const renderNietMedischDashboard = async (req, res) => {
-  res.render('layouts/nietMedischDashboard');
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/nietMedischDashboard', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-export const renderCollegas = async (req, res) => {
-  res.render('layouts/collega');
+export const renderMedischCollegas = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/medische-collega', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-export const renderGesprekken = async (req, res) => {
-  res.render('layouts/gesprekken');
+export const renderMedischGesprekken = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/medische-gesprekken', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
+export const renderNietMedischGesprekken = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/nietMedische-gesprekken', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const renderNietMedischCollegas = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/nietMedische-collega', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
+};
 export const renderBeoordeling = async (req, res) => {
   res.render('layouts/form');
 };
