@@ -97,6 +97,12 @@ app.put('/api/roles', jwtTokenAuth, updateRole);
 app.get('/admin-add-user', renderTestAddUser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
+app.get('/adminAddUser', renderTestAddUser);
+app.get('/medischdash', renderTestMedischDashboard);
+app.get('/nietmedischdash', renderTestNietMedischDashboard);
+app.get('/collega', renderTestCollegas);
+app.get('/gesprekken', renderTestGesprekken);
+app.get('/form', renderTestBeoordeling);
 app.get('/medisch-dash', jwtAuth, isMedische, renderMedischDashboard);
 app.get(
   '/niet-medisch-dash',
