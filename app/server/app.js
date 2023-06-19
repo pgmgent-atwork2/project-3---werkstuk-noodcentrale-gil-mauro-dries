@@ -94,7 +94,7 @@ app.put('/api/putUsers', updateUser);
 app.put('/api/roles', jwtTokenAuth, updateRole);
 
 //! define routes FRONT-END
-app.get('/admin-add-user', renderTestAddUser);
+app.get('/admin-add-user', jwtAuth, isAdmin, renderTestAddUser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
 app.get('/medisch-dash', jwtAuth, isMedische, renderMedischDashboard);

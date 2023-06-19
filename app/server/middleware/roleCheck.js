@@ -26,7 +26,7 @@ export const isNotMedische = async (req, res, next) => {
 
   if (role.id === 3 || role.id === 4 || role.id === 5) {
     return next(); // Ga verder naar de volgende middleware of route-handler
-  } 
+  }
 
   return res.render('layouts/notAllowed');
 };

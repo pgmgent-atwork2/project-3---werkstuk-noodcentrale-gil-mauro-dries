@@ -144,7 +144,25 @@ export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };
 export const renderMedischDashboard = async (req, res) => {
-  res.render('layouts/medischDashboard');
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    console.log('renderMedischDashboard', findUser);
+
+    res.render('layouts/medischDashboard', {
+      user: req.user,
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 export const renderNietMedischDashboard = async (req, res) => {
   res.render('layouts/nietMedischDashboard');
