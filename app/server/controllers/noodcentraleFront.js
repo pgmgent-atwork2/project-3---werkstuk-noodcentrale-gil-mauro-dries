@@ -155,9 +155,6 @@ export const renderMedischDashboard = async (req, res) => {
       },
     });
 
-    console.log(req.user);
-    console.log('renderMedischDashboard', findUser);
-
     res.render('layouts/medischDashboard', {
       findUser,
     });
@@ -165,16 +162,100 @@ export const renderMedischDashboard = async (req, res) => {
     console.error(e);
   }
 };
+
 export const renderNietMedischDashboard = async (req, res) => {
-  res.render('layouts/nietMedischDashboard');
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/nietMedischDashboard', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-export const renderCollegas = async (req, res) => {
-  res.render('layouts/collega');
+export const renderMedischCollegas = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/collega', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
-export const renderGesprekken = async (req, res) => {
-  res.render('layouts/gesprekken');
+export const renderMedischGesprekken = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/medische-gesprekken', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const renderNietMedischGesprekken = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/nietMedische-gesprekken', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const renderNietMedischCollegas = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('User');
+    const { id } = req.user;
+    const findUser = await userRepo.findOne({
+      relations: ['meta', 'role'],
+      where: {
+        id,
+      },
+    });
+
+    res.render('layouts/gesprekken', {
+      findUser,
+    });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export const renderBeoordeling = async (req, res) => {
