@@ -1,17 +1,32 @@
 export const isAdmin = async (req, res, next) => {
-  const { user } = req.user;
-  console.log("req.user:", res.user);
+  const { role } = req.user;
+  console.log('req.user:', req.user);
 
-  // if (user === 1) {
-  //   res.redirect('/admin-dash');
-  // } else {
-  //   return res.json({ status: 404, statusText: 'Not Allowed' });
-  // }
-
-  try {
-    return next();
-  } catch (e) {
-    res.clearCookie('token');
-    return res.redirect('/login');
+  if (role.id === 1) {
+    return next(); // Ga verder naar de volgende middleware of route-handler
   }
+
+  return res.render('layouts/notAllowed');
+};
+
+export const isMedische = async (req, res, next) => {
+  const { role } = req.user;
+  console.log('req.user:', req.user);
+
+  if (role.id === 2) {
+    return next(); // Ga verder naar de volgende middleware of route-handler
+  }
+
+  return res.render('layouts/notAllowed');
+};
+
+export const isNotMedische = async (req, res, next) => {
+  const { role } = req.user;
+  console.log('req.user:', req.user);
+
+  if (role.id === 3 || role.id === 4 || role.id === 5) {
+    return next(); // Ga verder naar de volgende middleware of route-handler
+  } 
+
+  return res.render('layouts/notAllowed');
 };
