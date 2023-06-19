@@ -7,6 +7,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { create } from 'express-handlebars';
 import { fileURLToPath } from 'url';
+import qs from 'qs';
 import DataSource from './lib/DataSource.js';
 import SOURCE_PATH from './constants.js';
 
@@ -23,11 +24,12 @@ import {
   renderForBrowser,
   addUserForm,
   renderTestAddUser,
-  renderTestMedischDashboard,
-  renderTestNietMedischDashboard,
-  renderTestCollegas,
-  renderTestGesprekken,
-  renderTestBeoordeling,
+  renderMedischDashboard,
+  renderNietMedischDashboard,
+  renderCollegas,
+  renderGesprekken,
+  putUser,
+  renderBeoordeling,
 } from './controllers/noodcentraleFront.js';
 
 // login and register imports
@@ -36,11 +38,17 @@ import { login, logout, postLogin } from './controllers/authentication.js';
 import Authentication from './middleware/validation/Authentication.js';
 import { jwtAuth, jwtTokenAuth } from './middleware/jwtAuth.js';
 import { updateRole } from './controllers/api/roles.js';
-import { isAdmin } from './middleware/roleCheck.js';
+import { isAdmin, isMedische, isNotMedische } from './middleware/roleCheck.js';
 import HandlebarsHelpers from './lib/helpers/HandlebarHelpers.js';
 
 // create express app
 const app = express();
+
+app.set('query parser', (str) =>
+  qs.parse(str, {
+    /* custom options */
+  })
+);
 
 // serve static files
 const __filename = fileURLToPath(import.meta.url);
@@ -83,12 +91,10 @@ app.get('/api/users', getUsers);
 app.delete('/api/delUsers', deleteUsers);
 app.post('/add-user', addUser);
 app.put('/api/putUsers', updateUser);
-
 app.put('/api/roles', jwtTokenAuth, updateRole);
 
 //! define routes FRONT-END
-
-app.get('/adminAddUser', renderTestAddUser);
+app.get('/admin-add-user', renderTestAddUser);
 app.get('/add-user', addUserForm);
 app.post('/add-user', addUser);
 app.get('/adminAddUser', renderTestAddUser);
@@ -97,8 +103,19 @@ app.get('/nietmedischdash', renderTestNietMedischDashboard);
 app.get('/collega', renderTestCollegas);
 app.get('/gesprekken', renderTestGesprekken);
 app.get('/form', renderTestBeoordeling);
+app.get('/medisch-dash', jwtAuth, isMedische, renderMedischDashboard);
+app.get(
+  '/niet-medisch-dash',
+  jwtAuth,
+  isNotMedische,
+  renderNietMedischDashboard
+);
+app.get('/collegas', renderCollegas);
+app.get('/gesprekken', renderGesprekken);
+app.get('/form', renderBeoordeling);
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
+app.post('/put-user', putUser);
 
 //* -------------------------------- DATA INIT --------------------------------
 

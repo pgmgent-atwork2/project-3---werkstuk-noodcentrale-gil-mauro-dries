@@ -1,14 +1,19 @@
 {{#each findUsers}}
-  <article id='medewerkerslijst'>
+  <article class='medewerkerslijst'>
     <div>
-      <div class='medewerkerslijst__name'>
-        <img src={{meta.avatar}} alt="avatar 'naam'" />
-        <p class='list__names'>{{meta.firstname}} {{meta.lastname}}</p>
-      </div>
-      <p>{{email}}</p>
-      <p>{{meta.GSM}}</p>
+      <form class="form-list" method="POST" action="/put-user">
+        <div class='medewerkerslijst__name'>
+          <img src={{meta.avatar}} alt="avatar 'naam'" />
+          <input type="hidden" value="{{id}}" name="id" class='list__names'>
+          <input type="text" value="{{meta.firstname}}" name="firstname" class='list__names'>
+          <input type="text" value="{{meta.lastname}}" name="lastname" class='list__names'>
+        </div>
+        <input type="text" value="{{email}}" name="email" class='list__names'>
+        <input type="text" value="{{meta.GSM}}" name="GSM" class='list__names'>
+        <button type="submit">submit</button>
+      </form>
       <form id='rol-{{id}}' method='get'>
-        <select data-id='{{id}}' name='rol' required='required' id='rol-{{id}}'>
+        <select data-id='{{id}}' name='rol' required='required' id='rol-select-{{id}}'>
           <option {{#isSelected role.id 2}} {{/isSelected}} value='2'>Medische directeur</option>
           <option {{#isSelected role.id 3}} {{/isSelected}} value='3'>Functionele directeur</option>
           <option {{#isSelected role.id 4}} {{/isSelected}} value='4'>Ploegleiders</option>
@@ -18,6 +23,7 @@
     </div>
   </article>
 {{/each}}
+
 
 <script>
   const secretToken = "nobodynknows";
