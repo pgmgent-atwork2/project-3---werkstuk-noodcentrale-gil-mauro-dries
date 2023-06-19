@@ -143,6 +143,7 @@ export const putUser = async (req, res) => {
 export const renderTestAddUser = async (req, res) => {
   res.render('layouts/adminAddUser');
 };
+
 export const renderMedischDashboard = async (req, res) => {
   try {
     const userRepo = DataSource.getRepository('User');
@@ -154,10 +155,10 @@ export const renderMedischDashboard = async (req, res) => {
       },
     });
 
+    console.log(req.user);
     console.log('renderMedischDashboard', findUser);
 
     res.render('layouts/medischDashboard', {
-      user: req.user,
       findUser,
     });
   } catch (e) {
