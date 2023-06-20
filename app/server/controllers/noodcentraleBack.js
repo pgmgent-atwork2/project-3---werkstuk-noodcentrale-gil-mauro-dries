@@ -70,7 +70,7 @@ export const addUser = async (req, res, next) => {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         GSM: req.body.phone,
-        avatar: 'img',
+        avatar: 'https://avatars.githubusercontent.com/u/16882849',
       },
     });
 

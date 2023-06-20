@@ -17,26 +17,19 @@
             <article>
                 <h3 class="title__live">Collega's</h3>
                 <ul class="liveLuisteren__list">
+                    {{#each findUsers}}
                     <li>
                         <div>
-                            <img src="/public/images/collega.png" alt="telephone icon">
+                            <img src="{{meta.avatar}}" alt="telephone icon">
                         </div>
-                        <p>Gil verstelt</p>
-                        <p>email</p>
-                        <p>gsm nummer</p>
+                        <p>{{meta.firstname}}  {{meta.lastname}}</p>
+                        <p>{{email}}</p>
+                        <p>{{meta.GSM}}</p>
+                        <p>{{role.label}}</p>
                         <button><a href="/feedback">Beoordeel</a></button>
                     </li>
                     <hr>
-                    <li>
-                        <div>
-                            <img src="/public/images/collega.png" alt="telephone icon">
-                        </div>
-                        <p>Gil verstelt</p>
-                        <p>email</p>
-                        <p>gsm nummer</p>
-                        <button><a href="/feedback">Beoordeel</a></button>
-                    </li>
-                    <hr>
+                    {{/each}}
                 </ul>
             </article>
         </section>

@@ -3,6 +3,7 @@
  */
 
 import bcrypt from 'bcrypt';
+import { In } from 'typeorm';
 import DataSource from '../lib/DataSource.js';
 
 export const renderForBrowser = async (req, res) => {
@@ -203,8 +204,16 @@ export const renderMedischCollegas = async (req, res) => {
       },
     });
 
+    const findUsers = await userRepo.find({
+      relations: ['meta', 'role'],
+      where: {
+        role: { id: 2 },
+      },
+    });
+
     res.render('layouts/medische-collega', {
       findUser,
+      findUsers,
     });
   } catch (e) {
     console.error(e);
@@ -260,8 +269,16 @@ export const renderNietMedischCollegas = async (req, res) => {
       },
     });
 
+    const findUsers = await userRepo.find({
+      relations: ['meta', 'role'],
+      where: {
+        role: { id: In([3, 4, 5]) },
+      },
+    });
+
     res.render('layouts/nietMedische-collega', {
       findUser,
+      findUsers,
     });
   } catch (e) {
     console.error(e);
