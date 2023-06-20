@@ -8,12 +8,15 @@ import cookieParser from 'cookie-parser';
 import { create } from 'express-handlebars';
 import { fileURLToPath } from 'url';
 import qs from 'qs';
+import swaggerUi from 'swagger-ui-express';
 import DataSource from './lib/DataSource.js';
 import SOURCE_PATH from './constants.js';
+import swaggerDefinition from '../../docs/swagger.js';
 
 //! import backend
 import {
   getUsers,
+  getOneUser,
   deleteUsers,
   updateUser,
   addUser,
@@ -47,11 +50,15 @@ import HandlebarsHelpers from './lib/helpers/HandlebarHelpers.js';
 // create express app
 const app = express();
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
+
 app.set('query parser', (str) =>
   qs.parse(str, {
     /* custom options */
   })
 );
+
+/* * add swagger */
 
 // serve static files
 const __filename = fileURLToPath(import.meta.url);
@@ -91,7 +98,8 @@ app.post('/logout', logout);
 //! define routes BACK-END
 
 app.get('/api/users', getUsers);
-app.delete('/api/delUsers', deleteUsers);
+app.get('/api/oneuser/:id', getOneUser);
+app.delete('/api/users', deleteUsers);
 app.post('/add-user', addUser);
 app.put('/api/putUsers', updateUser);
 app.put('/api/roles', jwtTokenAuth, updateRole);

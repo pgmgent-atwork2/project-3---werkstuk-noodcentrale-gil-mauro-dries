@@ -14,6 +14,19 @@ export const getUsers = async (req, res) => {
   }
 };
 
+export const getOneUser = async (req, res) => {
+  try {
+    const userRepo = DataSource.getRepository('UserMeta');
+    const { id } = req.params;
+
+    const renderUser = await userRepo.findOneBy({ id });
+
+    res.status(200).json(renderUser);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const deleteUsers = async (req, res) => {
   try {
     const { id } = req.body;

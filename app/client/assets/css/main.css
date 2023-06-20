@@ -408,20 +408,13 @@ input:focus {
   display: flex;
   align-items: center;
   margin: auto;
+  justify-content: space-between;
 }
-.liveLuisteren__list li div + p {
+.liveLuisteren__list li div + .collega-firstname, .liveLuisteren__list li div + p + .collega-email, .liveLuisteren__list li div + p + p + .collega-gsm{
   width: 12rem;
 }
 
-.liveLuisteren__list li div + p + p {
-  width: 12rem;
-}
-
-.liveLuisteren__list li div + p + p + p {
-  width: 12rem;
-}
-
-.liveLuisteren__list li div + p + p + p + p {
+.liveLuisteren__list li div + p + p + p + .collega-label {
   width: 15rem;
 }
 .liveLuisteren__list li div {
