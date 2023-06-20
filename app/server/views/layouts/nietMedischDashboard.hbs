@@ -14,153 +14,16 @@
     <main class="nietMedisch__dashboard">
         {{>sidebar/sidebar-niet-medisch}}
         <section class="right__section">
-            <header>
-                <div class="header__container">
-                    <div class="header__profile">
-                        <img src="/public/images/superAdmin.jpg" alt="Dries foto">
-                        <div>
-                            <p>Goede morgen, Dries</p>  <!-- dynamisch maken -->
-                            <span>Beoordeel nu je collega's</span>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="/public/images/calender.png" alt="calender icon">
-                            <p><span>Vandaag,</span> 9 april</p>
-                        </div>
-                        <div>
-                            <img src="/public/images/clock.png" alt="clock icon">
-                            <p>8:00</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            {{>header/dashboard-header}}
             <article>
                 <h3 class="title__live">Live luisteren</h3>
                 <ul class="liveLuisteren__list">
-                    <li>
-                        <div>
-                            <img src="/public/images/telephone.png" alt="telephone icon">
-                        </div>
-                        <p>Gil verstelt</p>
-                        <p>09/05/2023</p>
-                        <p>16u22</p>
-                        <p>Deinze</p>
-                        <p>MauroCoone</p>
-                        <p>3:55</p>
-                        <button><a href="/feedback">Luister</a></button>
-                    </li>
-                    <hr>
-                    <li>
-                        <div>
-                            <img src="/public/images/telephone.png" alt="telephone icon">
-                        </div>
-                        <p>Gil verstelt</p>
-                        <p>09/05/2023</p>
-                        <p>16u22</p>
-                        <p>Deinze</p>
-                        <p>MauroCoone</p>
-                        <p>3:55</p>
-                        <button><a href="/feedback">Luister</a></button>
-                    </li>
-                    <hr>
+                {{>lists/live-luisteren-niet-medisch}}
                 </ul>
                 <div>
-                    <div class="collega__calls">
-                        <div class="collega__calls__text">
-                            <h2>Collega's in gesprek</h2>
-                            <div class="collega__calls--grid">
-                                <div class="collega__calls__element">
-                                    <div>
-                                        <div class="collega__call__name">
-                                            <img src="/public/images/person.gif" alt="">
-                                            <p>Gil verstelt</p>
-                                        </div>
-                                        <p>09/05/2023</p>
-                                        <span class="clock"></span>
-                                    </div>
-                                    <button><a href="">Luister</a></button>
-                                </div>
-
-                                <div class="collega__calls__element">
-                                    <div>
-                                        <div class="collega__call__name">
-                                            <img src="/public/images/person.gif" alt="">
-                                            <p>Gil verstelt</p>
-                                        </div>
-                                        <p>09/05/2023</p>
-                                        <span class="clock2"></span>
-                                    </div>
-                                    <button><a href="">Luister</a></button>
-                                </div>
-
-                                <div class="collega__calls__element">
-                                    <div>
-                                        <div class="collega__call__name">
-                                            <img src="/public/images/person.gif" alt="">
-                                            <p>Gil verstelt</p>
-                                        </div>
-                                        <p>09/05/2023</p>
-                                        <span class="clock3"></span>
-                                    </div>
-                                    <button><a href="">Luister</a></button>
-                                </div>
-
-                                <div class="collega__calls__element">
-                                    <div>
-                                        <div class="collega__call__name">
-                                            <img src="/public/images/person.gif" alt="">
-                                            <p>Gil verstelt</p>
-                                        </div>
-                                        <p>09/05/2023</p>
-                                        <span class="clock4"></span>
-                                    </div>
-                                    <button><a href="">Luister</a></button>
-                                </div>
-
-                                <div class="collega__calls__element">
-                                    <div>
-                                        <div class="collega__call__name">
-                                            <img src="/public/images/person.gif" alt="">
-                                            <p>Gil verstelt</p>
-                                        </div>
-                                        <p>09/05/2023</p>
-                                        <span class="clock5"></span>
-                                    </div>
-                                    <button><a href="">Luister</a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="recent__calls">
-                        <div class="recent__calls__text">
-                            <h2>Recente gesprekken</h2>
-                            <ul class="liveLuisteren__list recent__calls__list">
-                                <li>
-                                    <div>
-                                        <img src="/public/images/gesprekken.png" alt="telephone icon">
-                                    </div>
-                                    <p>Gil verstelt</p>
-                                    <p>09/05/2023</p>
-                                    <p>16u22</p>
-                                    <p>3:55</p>
-                                    <button><a href="/feedback">Luister</a></button>
-                                </li>
-                                <hr>
-                                <li>
-                                    <div>
-                                        <img src="/public/images/gesprekken.png" alt="telephone icon">
-                                    </div>
-                                    <p>Gil verstelt</p>
-                                    <p>09/05/2023</p>
-                                    <p>16u22</p>
-                                    <p>3:55</p>
-                                    <button><a href="/feedback">Luister</a></button>
-                                </li>
-                                <hr>
-                            </ul>
-                        </div>
-                    </div>
+                    {{>lists/collegas-in-gesprek-niet-medisch}}
+                    
+                    {{> lists/recente-gesprekken-niet-medisch}}
                 </div>
             </article>
         </section>
