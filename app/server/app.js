@@ -124,7 +124,7 @@ app.get(
   isNotMedische,
   renderNietMedischGesprekken
 );
-app.get('/form', renderBeoordeling);
+app.get('/feedback', renderBeoordeling);
 app.get('/admin-dash', jwtAuth, isAdmin, renderForBrowser);
 app.get('/add-user', jwtAuth, addUserForm);
 app.post('/put-user', putUser);

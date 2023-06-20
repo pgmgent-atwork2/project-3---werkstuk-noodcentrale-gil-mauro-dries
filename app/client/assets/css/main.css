@@ -306,6 +306,15 @@ input:focus {
 .medewerkerslijst button:hover{
   border-radius: 10px;
 }
+#list .list__top .filter-buttons{
+  display: none;
+  transition: all 0.4s ease-in-out;
+}
+
+#list .list__top .show-filter-buttons{
+  display: flex;
+}
+
 /* ----------------- dropwdown --------------- */ 
 #rol{
     background-color: var(--light);
@@ -497,10 +506,9 @@ input:focus {
 
 .recent__calls__list li {
   font-size: 0.9rem;
-  color: white;
 }
 .recent__calls__list li button:hover a{
-  color: white;
+  color: var(--primary);
 }
 
 /* ----------------------- form ------------------- */

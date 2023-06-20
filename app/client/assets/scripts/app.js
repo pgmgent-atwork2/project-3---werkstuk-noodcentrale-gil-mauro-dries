@@ -47,6 +47,8 @@ const functioneelButton = document.getElementById('functioneel');
 const ploegleidersButton = document.getElementById('ploegleiders');
 const deskundigenButton = document.getElementById('deskundigen');
 const allButton = document.getElementById('all');
+const filterbutton = document.querySelector('.filter-list');
+const buttonsFilter = document.querySelector('.filter-buttons');
 
 if (window.location.href === 'http://localhost:3000/admin-dash') {
   window.location.href = 'http://localhost:3000/admin-dash/?roleId=0';
@@ -76,4 +78,9 @@ deskundigenButton.addEventListener('click', () => {
 allButton.addEventListener('click', () => {
   console.log('allButton clicked');
   window.location.href = 'http://localhost:3000/admin-dash/?roleId=0';
+});
+
+
+filterbutton.addEventListener('click', () => {
+  buttonsFilter.classList.toggle('show-filter-buttons');
 });
