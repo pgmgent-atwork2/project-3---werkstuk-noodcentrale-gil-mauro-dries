@@ -1,4 +1,5 @@
 /coverage
 /node_modules
-typeorm-demo.sqlite3
 .DS_Store
+*.sqlite3
+.env
